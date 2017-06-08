@@ -1,5 +1,8 @@
 package proyect.myCar.logic;
 
-public class AbstractSystem {
+// Aplicar patron bridge
+
+public class AbstractSystem 
+{
 
 }
