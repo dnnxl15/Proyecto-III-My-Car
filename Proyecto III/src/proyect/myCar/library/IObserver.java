@@ -1,5 +1,6 @@
 package proyect.myCar.library;
 
-public interface IObserver {
-
+public interface IObserver 
+{
+	void update();
 }
