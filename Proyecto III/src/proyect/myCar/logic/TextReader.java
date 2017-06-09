@@ -15,7 +15,7 @@ public class TextReader
 	{
 	}
 	
-	public synchronized static TextReader getInstance() //synchronized the TextReader
+	public synchronized static TextReader getInstance()
 	{
 		if (Instance==null)
 		{
