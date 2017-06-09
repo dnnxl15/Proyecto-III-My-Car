@@ -2,6 +2,7 @@ package proyect.myCar.library;
 
 public interface IObservable 
 {
-	void addObserver(IObserver observer);
-	void removeObserver(IObserver observer);
+	void addObserver(IObserver pObserver);
+	void removeObserver(IObserver pObserver);
+	void notifyObserver();
 }
