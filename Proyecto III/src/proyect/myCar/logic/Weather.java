@@ -20,4 +20,4 @@ public class Weather extends FreeWayComponent
 	{
 		return this.Rain;
 	}
-}
+}//

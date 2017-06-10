@@ -15,4 +15,4 @@ public class Distance extends FreeWayComponent
 	{
 		return this.Meter;
 	}
-}
+}//

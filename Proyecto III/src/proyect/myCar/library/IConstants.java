@@ -8,3 +8,4 @@ public interface IConstants
 	
 	public final int TRACK_METERS = 100; //Symbology of point
 }
+//

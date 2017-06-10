@@ -56,4 +56,4 @@ public class Intersection extends FreeWayComponent
 	{
 		return Final;
 	}
-}
+}//
