@@ -4,5 +4,5 @@ import proyect.myCar.logic.FreeWayComponent;
 
 public interface IFactory 
 {
-	public FreeWayComponent createComponent();
+	public FreeWayComponent createComponent(); //Create FreeWayComponent
 }
