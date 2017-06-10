@@ -1,5 +1,7 @@
 package proyect.myCar.logic;
 
+// Class Velocity
+
 public class Velocity extends FreeWayComponent
 {
 	private int VelocityMinimum;

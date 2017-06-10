@@ -1,5 +1,7 @@
 package proyect.myCar.logic;
 
+// Class Weather
+
 public class Weather extends FreeWayComponent
 {
 	private boolean Rain;

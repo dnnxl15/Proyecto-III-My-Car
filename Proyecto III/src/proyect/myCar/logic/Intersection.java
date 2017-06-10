@@ -1,7 +1,5 @@
 package proyect.myCar.logic;
 
-// Class Intersection
-
 public class Intersection extends FreeWayComponent
 {
 	private boolean FourCorner;

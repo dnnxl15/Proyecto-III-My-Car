@@ -3,6 +3,8 @@ package proyect.myCar.logic;
 import proyect.myCar.library.FreeWayComponentType;
 import proyect.myCar.library.IFactory;
 
+// Class FactoryComponent where is create components
+
 public class FactoryComponent implements IFactory
 {
 	private static FactoryComponent Instance;

@@ -1,5 +1,7 @@
 package proyect.myCar.logic;
 
+// Class Time
+
 public class Time extends FreeWayComponent
 {
 	private boolean Day;

@@ -1,5 +1,7 @@
 package proyect.myCar.logic;
 
+// Class Distance
+
 public class Distance extends FreeWayComponent 
 {
 	private int Meter;
