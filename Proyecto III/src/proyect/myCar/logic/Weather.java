@@ -1,5 +1,6 @@
 package proyect.myCar.logic;
 
-public class Weather {
+public class Weather
+{
 
 }
