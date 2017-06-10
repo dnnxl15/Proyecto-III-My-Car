@@ -1,12 +1,52 @@
-<<<<<<< HEAD
 package proyect.myCar.logic;
 
-public class FactoryComponent 
+import proyect.myCar.library.FreeWayComponentType;
+import proyect.myCar.library.IFactory;
+
+public class FactoryComponent implements IFactory
 {
-=======
-package logic;
+	private static FactoryComponent Instance;
+	
+	private FactoryComponent()
+	{
+	}
+	
+	public synchronized static FactoryComponent getInstance()
+	{
+		if (Instance==null)
+		{
+			Instance = new FactoryComponent();
+		}
+		return Instance;
+	}
 
-public class FactoryComponent {
->>>>>>> refs/remotes/origin/master
-
+	@Override
+	public FreeWayComponent createComponent(FreeWayComponentType pType) 
+	{
+		if(FreeWayComponentType.DISTANCE == pType)
+		{
+			FreeWayComponent Distance = new Distance();
+			return Distance;
+		}
+		else if(FreeWayComponentType.INTERSECTION == pType)
+		{
+			FreeWayComponent Intersection = new Intersection();
+			return Intersection;
+		}
+		else if(FreeWayComponentType.TIME == pType)
+		{
+			FreeWayComponent Time = new Time();
+			return Time;
+		}
+		else if(FreeWayComponentType.VELOCITY == pType)
+		{
+			FreeWayComponent Velocity = new Velocity();
+			return Velocity;
+		}
+		else 
+		{
+			FreeWayComponent Weather = new Weather();
+			return Weather;
+		}
+	}
 }

@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 package proyect.myCar.logic;
 
-public class FreeWayComponent 
+import proyect.myCar.library.IConstants;
+
+public class FreeWayComponent implements IConstants
 {
-=======
-package logic;
-
-public class FreeWayComponent {
->>>>>>> refs/remotes/origin/master
-
+	
 }
