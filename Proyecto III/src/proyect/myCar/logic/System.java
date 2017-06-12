@@ -8,6 +8,7 @@ import proyect.myCar.library.IObserver;
 
 public class System implements IObservable
 {
+	public static Object out;
 	private ArrayList<IObserver> Observers;
 
 	@Override

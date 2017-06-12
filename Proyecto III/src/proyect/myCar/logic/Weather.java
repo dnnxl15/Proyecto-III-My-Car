@@ -1,23 +1,11 @@
 package proyect.myCar.logic;
 
-// Class Weather
-
-public class Weather extends FreeWayComponent
+public class Weather 
 {
-	private boolean Rain;
-	
-	public Weather()
-	{
-		this.Rain = false;
-	}
-	
-	public void setRain()
-	{
-		this.Rain = true;
-	}
+	private boolean rain;
 	
 	public boolean isRaining()
 	{
-		return this.Rain;
+		return false;
 	}
-}//
+}

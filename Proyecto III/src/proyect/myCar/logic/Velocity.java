@@ -1,60 +1,17 @@
 package proyect.myCar.logic;
 
-// Class Velocity
-
-public class Velocity extends FreeWayComponent
+public class Velocity
 {
-	private int VelocityMinimum;
-	private int VelocityMaximun;
-
-	public Velocity()
+	private int maximumSpeed;
+	private int minimumSpeed;
+	
+	public boolean isMaximumSpeed()
 	{
-		setVelocityMinimum(0);
-		setVelocityMaximun(0);
-	}
-
-	public int getVelocityMaximun() 
-	{
-		return VelocityMaximun;
-	}
-
-	public void setVelocityMaximun(int pVelocityMaximun)
-	{
-		VelocityMaximun = pVelocityMaximun;
-	}
-
-	public int getVelocityMinimum() 
-	{
-		return VelocityMinimum;
-	}
-
-	public void setVelocityMinimum(int pVelocityMinimum) 
-	{
-		VelocityMinimum = pVelocityMinimum;
+		return false;
 	}
 	
-	public boolean isVelocityMaximun()
+	public boolean isMinimumSpeed()
 	{
-		if(VelocityMaximun != 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
-	
-	public boolean isVelocityMinimun()
-	{
-		if(VelocityMinimum != 0)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-		
-	}
-}//
+}

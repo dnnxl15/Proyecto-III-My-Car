@@ -11,7 +11,7 @@ public class TextReader
 {
 	private static TextReader Instance; //instance
 
-	private TextReader()
+	TextReader()
 	{
 	}
 	
