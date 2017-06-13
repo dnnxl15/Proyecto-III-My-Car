@@ -46,7 +46,7 @@ public class FreeWay implements IObservable
 	
 	private void splitText(String pRoute)
 	{   
-		TextReader textObject = new TextReader(); //create an object for TextReader
+		TextReader textObject = TextReader.getInstance(); //create an object for TextReader
 		String route = textObject.readFile(pRoute); //create the variable to be used in FreeWay and call the method from TextReader
 	    String limits = ""; //limits to be split
 	    String[] myRoute = route.split(limits); //splits character by character

@@ -1,10 +1,13 @@
 package proyect.myCar.logic;
 
-public class FactoryComponent
+import proyect.myCar.library.FreeWayComponentType;
+import proyect.myCar.library.IFactory;
+
+public class FactoryComponent implements IFactory
 {
 	private static FactoryComponent Instance; //instance
 
-	FactoryComponent()
+	private FactoryComponent()
 	{
 	}
 	
@@ -16,8 +19,7 @@ public class FactoryComponent
 		}
 		return Instance;
 	}
-<<<<<<< HEAD
-
+	
 	@Override
 	public FreeWayComponent createComponent(FreeWayComponentType pType) 
 	{
@@ -48,6 +50,3 @@ public class FactoryComponent
 		}
 	}
 }
-=======
-}
->>>>>>> refs/remotes/origin/master

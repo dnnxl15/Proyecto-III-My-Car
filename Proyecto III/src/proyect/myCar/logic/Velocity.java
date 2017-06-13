@@ -1,21 +1,54 @@
 package proyect.myCar.logic;
 
-public class Velocity
+import proyect.myCar.library.FreeWayComponentType;
+
+public class Velocity extends FreeWayComponent
 {
 	private int maximumSpeed;
 	private int minimumSpeed;
 	
+	public Velocity()
+	{
+		this.maximumSpeed = 0;
+		this.minimumSpeed = 0;
+	}
+	
+	public void setMaximunSpeed(int pMaximunSpeed)
+	{
+		this.maximumSpeed = pMaximunSpeed;
+	}
+	
+	public void setMinimunSpeed(int pMinimunSpeed)
+	{
+		this.minimumSpeed = pMinimunSpeed;
+	}
+	
 	public boolean isMaximumSpeed()
 	{
-		return false;
+		if(maximumSpeed > 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	public boolean isMinimumSpeed()
 	{
-		return false;
+		if(minimumSpeed > 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}	}
+	
+	@Override
+	public FreeWayComponentType getIdentifier()
+	{
+		return FreeWayComponentType.VELOCITY;
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/master

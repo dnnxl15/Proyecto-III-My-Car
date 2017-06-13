@@ -1,8 +1,9 @@
 package proyect.myCar.logic;
 
-public class Weather 
+import proyect.myCar.library.FreeWayComponentType;
+
+public class Weather extends FreeWayComponent
 {
-<<<<<<< HEAD
 	private boolean Rain;
 	
 	public Weather()
@@ -13,13 +14,21 @@ public class Weather
 	public void setRain()
 	{
 		this.Rain = true;
-	}//
-=======
-	private boolean rain;
->>>>>>> refs/remotes/origin/master
+	}
+	
+	public void setRainOff()
+	{
+		this.Rain = false;
+	}
 	
 	public boolean isRaining()
 	{
-		return false;
+		return Rain;
+	}
+	
+	@Override
+	public FreeWayComponentType getIdentifier()
+	{
+		return FreeWayComponentType.WEATHER;
 	}
 }

@@ -1,11 +1,17 @@
 package proyect.myCar.logic;
 
-public class FreeWayComponent {
+import proyect.myCar.library.FreeWayComponentType;
+import proyect.myCar.library.IConstants;
 
-<<<<<<< HEAD
 public class FreeWayComponent implements IConstants
 {
+	public FreeWayComponent()
+	{
+		
+	}
 	
-=======
->>>>>>> refs/remotes/origin/master
+	public FreeWayComponentType getIdentifier()
+	{
+		return null;
+	}
 }
