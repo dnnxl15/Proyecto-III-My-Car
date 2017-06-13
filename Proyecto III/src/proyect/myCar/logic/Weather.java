@@ -14,7 +14,7 @@ public class Weather extends FreeWayComponent
 	public void setRain()
 	{
 		this.Rain = true;
-	}
+	}//
 	
 	public boolean isRaining()
 	{

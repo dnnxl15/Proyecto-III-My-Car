@@ -50,5 +50,5 @@ public class FactoryComponent implements IFactory
 			FreeWayComponent Weather = new Weather();
 			return Weather;
 		}
-	}//
+	}
 }
