@@ -19,12 +19,23 @@ public class Obstacles
 	
 	public void setObstacleDay()
 	{
+<<<<<<< HEAD
 		
 	}
 	
 	public void setObstacleNight()
 	{
 		
+=======
+		obstacleDay = true;
+		obstacleNight = false;
+	}
+	
+	public void setObstacleNight()
+	{
+		obstacleNight = true;
+		obstacleDay = false;
+>>>>>>> refs/remotes/origin/master
 	}
 	
 	public boolean isObstacleDay()

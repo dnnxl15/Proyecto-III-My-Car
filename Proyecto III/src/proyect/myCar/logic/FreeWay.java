@@ -1,7 +1,9 @@
 package proyect.myCar.logic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;

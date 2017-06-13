@@ -11,7 +11,11 @@ public class TextReader
 {
 	private static TextReader Instance; //instance
 
+<<<<<<< HEAD
 	private TextReader()//
+=======
+	TextReader()
+>>>>>>> refs/remotes/origin/master
 	{
 	}
 	

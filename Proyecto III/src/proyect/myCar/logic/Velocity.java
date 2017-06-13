@@ -14,4 +14,8 @@ public class Velocity
 	{
 		return false;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master

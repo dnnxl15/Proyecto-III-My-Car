@@ -1,9 +1,11 @@
 package proyect.myCar.logic;
 
-import proyect.myCar.library.IConstants;
+public class FreeWayComponent {
 
+<<<<<<< HEAD
 public class FreeWayComponent implements IConstants
 {
 	
+=======
+>>>>>>> refs/remotes/origin/master
 }
-//

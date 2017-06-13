@@ -1,9 +1,8 @@
 package proyect.myCar.logic;
 
-// Class Distance
-
-public class Distance extends FreeWayComponent 
+public class Distance
 {
+<<<<<<< HEAD
 	private int Meter;
 	
 	public Distance()
@@ -16,3 +15,7 @@ public class Distance extends FreeWayComponent
 		return this.Meter;
 	}
 }
+=======
+	private int meter;
+}
+>>>>>>> refs/remotes/origin/master
