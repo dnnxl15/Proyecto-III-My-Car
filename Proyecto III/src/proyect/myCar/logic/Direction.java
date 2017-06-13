@@ -4,13 +4,17 @@ public class Direction
 {
 	private int axisX;
 	
+	public Direction()
+	{
+		this.axisX = 0;
+	}
 	public int moveRight()
 	{
-		return 0;
+		return this.axisX;
 	}
 	
 	public int moveLeft()
 	{
-		return 0;
+		return this.axisX;
 	}
 }

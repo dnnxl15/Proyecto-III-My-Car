@@ -30,6 +30,11 @@ public class Obstacles
 		obstacleNight = false;
 	}
 	
+	public void setRaining()
+	{
+		this.obstacleRain = true;
+	}
+	
 	public boolean isObstacleDay()
 	{
 		return this.obstacleDay;
@@ -42,16 +47,37 @@ public class Obstacles
 	
 	public boolean isObstacleMaximumSpeed()
 	{
-		return this.isObstacleMaximumSpeed();
+		if(this.obstacleMaximumSpeed>0)
+		{
+			
+			return true;
+		}
+		else	
+			return false;
 	}
 	
 	public boolean isObstacleMinimumSpeed()
 	{
-		return this.isObstacleMinimumSpeed();
+		if(this.obstacleMinimumSpeed>0)
+		{
+			return true;
+		}
+		else
+			return false;
 	}
 	
 	public boolean isRaining()
 	{
-		return this.isRaining();
+		return this.obstacleRain;
+	}
+	
+	public int getMaximunSpeed()
+	{
+		return this.obstacleMaximumSpeed;
+	}
+	
+	public int getMinumumSpeed()
+	{
+		return this.obstacleMinimumSpeed;
 	}
 }
