@@ -19,12 +19,14 @@ public class Obstacles
 	
 	public void setObstacleDay()
 	{
-		
+		obstacleDay = true;
+		obstacleNight = false;
 	}
 	
 	public void setObstacleNight()
 	{
-		
+		obstacleNight = true;
+		obstacleDay = false;
 	}
 	
 	public boolean isObstacleDay()
