@@ -7,7 +7,6 @@ public class FreeWayComponent implements IConstants
 {
 	public FreeWayComponent()
 	{
-		
 	}
 	
 	public FreeWayComponentType getIdentifier()

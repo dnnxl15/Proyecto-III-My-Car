@@ -6,7 +6,7 @@ import java.util.Iterator;
 import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;
 
-public class System implements IObservable
+public class SystemCar implements IObservable
 {
 	public static Object out;
 	private ArrayList<IObserver> Observers;
