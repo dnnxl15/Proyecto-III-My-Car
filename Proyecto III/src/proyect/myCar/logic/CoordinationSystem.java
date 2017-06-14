@@ -1,23 +1,17 @@
 package proyect.myCar.logic;
 
-public class CoordinationSystem 
-{
-	private Motor coordinationMotor;
-	private Direction coordinationDirection;
-	
+public class CoordinationSystem extends AbstractSystem
+{	
 	public CoordinationSystem()
 	{
-		this.coordinationMotor = null;
-		this.coordinationDirection = null;
+		this.motorObject = null;
+		this.directionObject = null;
 	}
 	
-	public void createMotor()
+	@Override
+	public void createCoordinationSystem() 
 	{
-		this.coordinationMotor = new Motor();
-	}
-	
-	public void createDirection()
-	{
-		this.coordinationDirection = new Direction();
+		this.motorObject = new Motor();
+		this.directionObject = new Direction();
 	}
 }

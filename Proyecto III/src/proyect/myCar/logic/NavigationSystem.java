@@ -1,24 +1,17 @@
 package proyect.myCar.logic;
 
-public class NavigationSystem 
+public class NavigationSystem extends AbstractSystem
 {
-	private Electric navigationElectric;
-	private Obstacles navigationObstacle;
-	
 	public NavigationSystem()
 	{
-		this.navigationElectric = null;
-		this.navigationObstacle = null;
+		this.electricObject = null;
+		this.obstaclesObject = null;
 	}
 	
-	public void createObstacle()
+	@Override
+	public void createNavigationSystem() 
 	{
-		this.navigationObstacle = new Obstacles();
+		this.electricObject = new Electric();
+		this.obstaclesObject = new Obstacles();
 	}
-	
-	public void createElectric()
-	{
-		this.navigationElectric = new Electric();
-	}
-
 }

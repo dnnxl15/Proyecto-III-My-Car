@@ -1,6 +1,6 @@
 package proyect.myCar.logic;
 
-public class Electric 
+public class Electric implements SystemCar
 {
 	private boolean lights;
 	private boolean leftDirectional;

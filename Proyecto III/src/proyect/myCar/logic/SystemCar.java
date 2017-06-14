@@ -1,12 +1,12 @@
 package proyect.myCar.logic;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
-import proyect.myCar.library.IObservable;
-import proyect.myCar.library.IObserver;
+public interface SystemCar
+{
 
-public class SystemCar implements IObservable
+}
+/* implements IObservable
 {
 	public static Object out;
 	private ArrayList<IObserver> Observers;
@@ -33,4 +33,4 @@ public class SystemCar implements IObservable
         }
 	}
 
-}
+}*/
