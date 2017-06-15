@@ -21,4 +21,6 @@ public interface IConstants
 	public final int ACCELERATION = 20; //accelerates in a constant from 0 to 100 km/h in 5 seconds}
 	
 	public final int POINTS_ON_GAME = 100; //mount of points to be played in the game
+	
+	public final int POINTS_LOSE_BY_FAULT = 5; //mount of points would be lost by each fault
 }
