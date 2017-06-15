@@ -20,9 +20,19 @@ public class AbstractSystem
 		this.motorObject = new Motor();
 	}
 	
+	public SystemCar getMotor()
+	{
+		return this.motorObject;
+	}
+	
 	public void createObstacle() //create a new Obstacles object
 	{
 		this.obstaclesObject = new Obstacles();
+	}
+	
+	public SystemCar getObstacles()
+	{
+		return this.obstaclesObject;
 	}
 	
 	public void createDirection() //creat a new Direction object
@@ -30,11 +40,21 @@ public class AbstractSystem
 		this.directionObject = new Direction();
 	}
 	
+	public SystemCar getDirection()
+	{
+		return this.directionObject;
+	}
+	
 	public void createElectric() //create a new Electric object
 	{
 		this.electricObject = new Electric();
 	}
 
+	public SystemCar getElectric()
+	{
+		return this.electricObject;
+	}
+	
 	public void createCoordinationSystem() //method that allows CoordinationSystem to create objects
 	{
 		// TODO Auto-generated method stub	
