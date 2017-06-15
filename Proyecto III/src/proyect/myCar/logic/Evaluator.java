@@ -15,4 +15,9 @@ public class Evaluator implements IConstants
 	{
 		return this.scorePoints;
 	}
+	
+	public void calculatePoints()
+	{
+		
+	}
 }
