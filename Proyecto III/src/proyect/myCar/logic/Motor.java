@@ -1,10 +1,11 @@
 package proyect.myCar.logic;
 
-public class Motor implements SystemCar
+import proyect.myCar.library.DashElementType;
+
+public class Motor extends SystemCar
 {
 	private boolean motor;
-	private short gear;
-	
+	private int gear;
 	
 	public Motor()
 	{
@@ -28,15 +29,17 @@ public class Motor implements SystemCar
 	
 	public int speedUp()
 	{
+		notifyObserver(DashElementType.VELOCITY, 0);
 		return 0;
 	}
 	
 	public int decelerate()
 	{
+		notifyObserver(DashElementType.VELOCITY, 0);
 		return 0;
 	}
 	
-	public short getGear()
+	public int getGear()
 	{
 		return gear;
 	}
@@ -44,5 +47,33 @@ public class Motor implements SystemCar
 	public void setGear(short pGear)
 	{
 		this.gear = pGear;
+	}
+	
+	// Agregarlos al diagrama
+	
+	public void increaseGear()
+	{
+		if(this.gear == MAXIMUN_GEAR)
+		{
+			return;
+		}
+		else
+		{
+			this.gear = this.gear++; 
+			notifyObserver(DashElementType.GEAR, gear);
+		}
+	}
+	
+	public void decreaseGear()
+	{
+		if(this.gear == MINIMUN_GEAR)
+		{
+			return;
+		}
+		else
+		{
+			this.gear = this.gear--; 
+			notifyObserver(DashElementType.GEAR, gear);
+		}
 	}
 }

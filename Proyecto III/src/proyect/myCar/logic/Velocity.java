@@ -13,6 +13,16 @@ public class Velocity extends FreeWayComponent
 		this.minimumSpeed = 0;
 	}
 	
+	public int getMaximunSpeed()
+	{
+		return this.maximumSpeed;
+	}
+	
+	public int getMinimunSpeed()
+	{
+		return this.minimumSpeed;
+	}
+	
 	public void setMaximunSpeed(int pMaximunSpeed)
 	{
 		this.maximumSpeed = pMaximunSpeed;

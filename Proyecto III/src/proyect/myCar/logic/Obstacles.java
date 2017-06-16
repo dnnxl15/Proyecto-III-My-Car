@@ -1,6 +1,6 @@
 package proyect.myCar.logic;
 
-public class Obstacles implements SystemCar 
+public class Obstacles extends SystemCar 
 {
 	private boolean obstacleDay;
 	private boolean obstacleNight;

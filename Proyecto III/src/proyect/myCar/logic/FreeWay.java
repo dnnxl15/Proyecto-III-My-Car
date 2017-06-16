@@ -10,7 +10,7 @@ import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;
 import proyect.myCar.library.*;
 
-public class FreeWay implements IObservable, IConstants
+public class FreeWay implements IObservable, IConstants, Runnable
 {
 	private ArrayList<IObserver> Observers;
 	private ArrayList<FreeWayComponent> componentList;
@@ -36,16 +36,6 @@ public class FreeWay implements IObservable, IConstants
 	public ArrayList<IObserver> getObservers()
 	{
 		return this.Observers;
-	}
-
-	@Override
-	public void notifyObserver() 
-	{
-		for (Iterator<IObserver> it = Observers.iterator(); it.hasNext();) 
-        {
-            IObserver IObserver = it.next();
-            IObserver.update();
-        }
 	}
 	
 	private List<String> splitText(String pRoute)
@@ -83,18 +73,19 @@ public class FreeWay implements IObservable, IConstants
 		catch (Exception e) //catch in case of a null pointer exception
 		{
 		}
-		try
+		return myFinalRoute;
+	/*	try
 		{
 			for (int position = 0; position < myFinalRoute.size(); position++)
 			{
+				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println(myFinalRoute.get(position).toString());
+				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
 			}
 		}
 		catch (Exception e)
 		{
-		}
-		return myFinalRoute;
-		
+		}*/
 	}
 	
 	public void loadFreeComponent(String pFileName)
@@ -107,7 +98,6 @@ public class FreeWay implements IObservable, IConstants
 			{
 				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT]))
 				{
-					System.out.println("yes");
 					Distance distance = new Distance();
 					this.componentList.add(distance);
 					counter++;
@@ -197,7 +187,42 @@ public class FreeWay implements IObservable, IConstants
 	
 	public static void main(String[] args) 
 	{
-		FreeWay road = new FreeWay();
-		road.loadFreeComponent("C:/Users/esteb/Documents/2017 - I SEMESTRE/POO/FINAL/ruta.txt");
+		String a = "h123";
+		String b = a.substring(1);
+		int c = Integer.parseInt(b);
+		System.out.println(c);
+		 //FreeWay road = new FreeWay();
+		 //road.splitText("C:/Users/dnnxl/Desktop/ruta.txt");
+	}
+
+	// Method run
+	
+	@Override
+	public void run() 
+	{
+		int counter = 0;
+		while(componentList.size() > counter)
+		{
+			notifyObserver(componentList.get(counter));
+			counter++;
+			try
+			{
+				Thread.sleep(WAIT);
+			} 
+			catch (InterruptedException e) 
+			{
+			}
+		}
+	}
+
+	@Override
+	public void notifyObserver(FreeWayComponent pComponent) 
+	{
+		for (Iterator<IObserver> it = Observers.iterator(); it.hasNext();) 
+        {
+            IObserver IObserver = it.next();
+            IObserver.update(pComponent);
+        }
 	}
 }
+
