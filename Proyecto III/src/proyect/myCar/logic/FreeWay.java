@@ -197,7 +197,6 @@ public class FreeWay implements IObservable, IConstants
 	
 	public static void main(String[] args) 
 	{
-
 		FreeWay road = new FreeWay();
 		road.loadFreeComponent("C:/Users/esteb/Documents/2017 - I SEMESTRE/POO/FINAL/ruta.txt");
 	}
