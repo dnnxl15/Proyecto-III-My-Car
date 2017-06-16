@@ -2,7 +2,7 @@ package proyect.myCar.library;
 
 public interface IConstants 
 {
-	public final int MAXIMUM_REVOLUTIONS = 3500; // the car can't exeed that limit
+	public final int MAXIMUM_REVOLUTIONS = 3000; // the car can't exeed that limit
 
 	public final int MOUNT_OF_THREADS = 5; // Mount of thread 
 
@@ -19,12 +19,23 @@ public interface IConstants
 	public final int ONE_HUNDRED = 100;
 	
 	public final int ACCELERATION = 20; //accelerates in a constant from 0 to 100 km/h in 5 seconds}
-
+	
 	public final int POINTS_ON_GAME = 100; //mount of points to be played in the game
 	
 	public final int POINTS_LOSE_BY_FAULT = 5; //mount of points would be lost by each fault
 	
-	public final String[] ROAD_COMPONENTS = {".", "T", "+", "F", "M", "m", "L", "D", "N"};
+	public final String[] ROAD_COMPONENTS = 
+	{
+			".",
+			"T", 
+			"+",
+			"F",
+			"M",
+			"m",
+			"L",
+			"D",
+			"N"
+	};
 	
 	public final short POINT_COMPONENT = 0;
 	
@@ -43,6 +54,7 @@ public interface IConstants
 	public final short DAY_COMPONENT = 7;
 	
 	public final short NIGHT_COMPONENT = 8;
+	
 	
 	// User Interface 
 	
@@ -65,4 +77,36 @@ public interface IConstants
 			"C:\\Users\\dnnxl\\Downloads\\boton-de-reproduccion (1).png",
 			"C:\\Users\\dnnxl\\Downloads\\boton-de-cargar (1).png"
 	};
+	
+	// Constant used to update the user interface with the FreeWay
+	
+	public final int WAIT = 10;
+	
+	public final String FALSE = "False";
+	
+	public final String TRUE = "True";
+	
+	public final String FINAL = "Final";
+	
+	public final String FOUR_CORNER = "Four Corner";
+	
+	public final String INTERSECTION = "Intersection";
+	
+	public final String MAXIMUN_SPEED = "Maximun Speed";
+	
+	public final String MINIMUN_SPEED = "Minimun Speed";
+	
+	public final String DAY = "Day";
+	
+	public final String NIGHT = "Night";
+	
+	public final int ON = 1;
+	
+	public final int OFF = 0;
+	
+	public final int MAXIMUN_GEAR = 5;
+	
+	public final int MINIMUN_GEAR = 1;
+
+	
 }
