@@ -14,4 +14,8 @@ public class NavigationSystem extends AbstractSystem
 		this.electricObject = new Electric();
 		this.obstaclesObject = new Obstacles();
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master
