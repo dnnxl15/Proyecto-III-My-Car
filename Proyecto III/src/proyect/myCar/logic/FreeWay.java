@@ -13,10 +13,12 @@ import proyect.myCar.library.*;
 public class FreeWay implements IObservable, IConstants
 {
 	private ArrayList<IObserver> Observers;
+	private ArrayList<FreeWayComponent> componentList;
 	
 	public FreeWay()
 	{
 		this.Observers = new ArrayList<IObserver>();
+		this.componentList = new ArrayList<FreeWayComponent>();
 	}
 
 	@Override
@@ -98,21 +100,105 @@ public class FreeWay implements IObservable, IConstants
 	
 	public void loadFreeComponent(String pFileName)
 	{
-		List<String> ListOfComponents = splitText(pFileName);
-		FactoryComponent FreeWayComponentFactory = FactoryComponent.getInstance();
-		for (int position = 0; position < ListOfComponents.size(); position++)
+		ArrayList<String> freeWayList = (ArrayList<String>) splitText(pFileName);
+		int counter = 0;
+		try
 		{
-			if(ListOfComponents.get(position).toString() == ONE_HUNDRED_METERS)
+			while(freeWayList.size() > counter)
 			{
-				FreeWayComponent Distance = FreeWayComponentFactory.createComponent(FreeWayComponentType.DISTANCE);
-				
+				if (freeWayList.get(counter).toString() == ".")
+				{
+					Distance distance = new Distance();
+					this.componentList.add(distance);
+					counter++;
+					continue;
+				}
+				if (freeWayList.get(counter).toString() == "T" || freeWayList.get(counter).toString() == "+" || freeWayList.get(counter).toString() == "F")
+				{
+					Intersection intersection = new Intersection();
+					if (freeWayList.get(counter).toString() == "T")
+					{
+						intersection.setIntersection();
+						this.componentList.add(intersection);
+						counter++;
+						continue;
+					}
+					if (freeWayList.get(counter).toString() == "+")
+					{
+						intersection.setFourCorner();
+						this.componentList.add(intersection);
+						counter++;
+						continue;
+					}
+					if (freeWayList.get(counter).toString() == "F")
+					{
+						intersection.setFinal();
+						this.componentList.add(intersection);
+						counter++;
+						continue;
+					}
+				}
+				if (freeWayList.get(counter).toString().contains("M") || freeWayList.get(counter).toString().contains("m"))
+				{
+					Velocity velocity = new Velocity();
+					String speed = freeWayList.get(counter).toString().substring(1); //take the numeric values in String format
+				    int speedValue = Integer.parseInt(speed);
+				    if (freeWayList.get(counter).toString().contains("M"))
+				    {
+						velocity.setMaximunSpeed(speedValue);
+						this.componentList.add(velocity);
+						counter++;
+						continue;
+					}
+				    if (freeWayList.get(counter).toString().contains("m"))
+				    {
+						velocity.setMinimunSpeed(speedValue);
+						this.componentList.add(velocity);
+						counter++;
+						continue;
+					}
+				}
+				if (freeWayList.get(counter).toString() == "L")
+				{
+					Weather weather = new Weather();
+					weather.setRain();
+					this.componentList.add(weather);
+					counter++;
+					continue;
+				}
+				if ((freeWayList.get(counter).toString() == "D") || (freeWayList.get(counter).toString() == "N"))
+				{
+					Time time = new Time();
+					if ((freeWayList.get(counter).toString() == "D"))
+					{
+						time.setDay();
+						this.componentList.add(time);
+						counter++;
+						continue;
+					}
+					if ((freeWayList.get(counter).toString() == "N"))
+					{
+						time.setNight();
+						this.componentList.add(time);
+						counter++;
+						continue;
+					}
+				}
 			}
+		}
+		catch (Exception e)
+		{
 		}
 	}
 	
 	public static void main(String[] args) 
 	{
-		 FreeWay road = new FreeWay();
-		 road.splitText("C:/Users/dnnxl/Desktop/ruta.txt");
+		String a = "h123";
+		String b = a.substring(1);
+		int c = Integer.parseInt(b);
+		System.out.println(c);
+		 //FreeWay road = new FreeWay();
+		 //road.splitText("C:/Users/dnnxl/Desktop/ruta.txt");
 	}
 }
+

@@ -25,28 +25,28 @@ public class FactoryComponent implements IFactory
 	{
 		if(FreeWayComponentType.DISTANCE == pType)
 		{
-			FreeWayComponent Distance = new Distance();
-			return Distance;
+			Distance distance = new Distance();
+			return distance;
 		}
 		else if(FreeWayComponentType.INTERSECTION == pType)
 		{
-			FreeWayComponent Intersection = new Intersection();
-			return Intersection;
+			Intersection intersection = new Intersection();
+			return intersection;
 		}
 		else if(FreeWayComponentType.TIME == pType)
 		{
-			FreeWayComponent Time = new Time();
-			return Time;
+			Time time = new Time();
+			return time;
 		}
 		else if(FreeWayComponentType.VELOCITY == pType)
 		{
-			FreeWayComponent Velocity = new Velocity();
-			return Velocity;
+			Velocity velocity = new Velocity();
+			return velocity;
 		}
 		else 
 		{
-			FreeWayComponent Weather = new Weather();
-			return Weather;
+			Weather weather = new Weather();
+			return weather;
 		}
 	}
 }

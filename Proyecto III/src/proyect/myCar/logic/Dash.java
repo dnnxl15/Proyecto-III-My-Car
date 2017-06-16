@@ -8,11 +8,30 @@ import proyect.myCar.library.IObserver;
 
 public class Dash implements IObservable
 {
+	private AbstractSystem coordinationObject;
+	private AbstractSystem navigationObject;
 	private ArrayList<IObserver> Observers;
 	
 	public Dash()
 	{
 		this.Observers = new ArrayList<IObserver>();
+		
+		this.coordinationObject = new CoordinationSystem();
+		this.coordinationObject.createCoordinationSystem();
+	
+		this.navigationObject = new NavigationSystem();
+		this.navigationObject.createNavigationSystem();
+	}
+	
+	public AbstractSystem getCoordinationObject()
+	{
+		return this.coordinationObject;
+	}
+	
+	
+	public AbstractSystem getNaviggationObject()
+	{
+		return this.navigationObject;
 	}
 	
 	@Override
@@ -36,4 +55,6 @@ public class Dash implements IObservable
             IObserver.update();
         }		
 	}
+		
 }
+

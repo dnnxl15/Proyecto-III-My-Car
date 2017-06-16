@@ -1,28 +1,48 @@
 package proyect.myCar.logic;
 
-public class Motor
+public class Motor implements SystemCar
 {
-	private boolean motorOn;
-	private boolean motorOff;
+	private boolean motor;
 	private short gear;
 	
-	public void speedUp()
+	
+	public Motor()
 	{
-		
+		this.motor = false;
+		this.gear= 0;
+	}
+	public boolean isMotorOn()
+	{
+		return this.motor;
 	}
 	
-	public void decelerate()
+	public void turnOnMotor()
 	{
-		
+		this.motor = true;
 	}
 	
-	public short getGear()
+	public void turnOffMotor()
+	{
+		this.motor = false;
+	}
+	
+	public int speedUp()
 	{
 		return 0;
 	}
 	
+	public int decelerate()
+	{
+		return 0;
+	}
+	
+	public short getGear()
+	{
+		return gear;
+	}
+	
 	public void setGear(short pGear)
 	{
-		
+		this.gear = pGear;
 	}
 }

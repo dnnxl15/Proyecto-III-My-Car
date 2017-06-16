@@ -1,6 +1,6 @@
 package proyect.myCar.logic;
 
-public class Electric 
+public class Electric implements SystemCar
 {
 	private boolean lights;
 	private boolean leftDirectional;
@@ -25,6 +25,11 @@ public class Electric
 		lights = false;
 	}
 	
+	public boolean getLights()
+	{
+		return this.lights;
+	}
+	
 	public void setOnLeftDirectional()
 	{
 		leftDirectional = true;
@@ -33,6 +38,11 @@ public class Electric
 	public void setOffLeftDirectional()
 	{
 		leftDirectional = false;
+	}
+	
+	public boolean getLeftDirectional()
+	{
+		return this.leftDirectional;
 	}
 	
 	public void setOnRightDirectional()
@@ -45,6 +55,11 @@ public class Electric
 		rightDirectional = false;
 	}
 	
+	public boolean getRightDirectional()
+	{
+		return this.rightDirectional;
+	}
+	
 	public void setOffBrushes()
 	{
 		brushes = false;
@@ -53,5 +68,10 @@ public class Electric
 	public void setOnBrushes()
 	{
 		brushes = true;
+	}
+	
+	public boolean getBrushes()
+	{
+		return this.brushes;
 	}
 }
