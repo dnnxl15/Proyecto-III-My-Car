@@ -10,7 +10,7 @@ import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;
 import proyect.myCar.library.*;
 
-public class FreeWay implements IObservable, IConstants
+public class FreeWay implements IObservable, IConstants, Runnable
 {
 	private ArrayList<IObserver> Observers;
 	private ArrayList<FreeWayComponent> componentList;
