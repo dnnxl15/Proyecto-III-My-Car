@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import proyect.myCar.library.IConstants;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -12,10 +15,11 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MyCar {
+public class MyCar implements IConstants
+{
 
 	private JFrame frmMyCar;
-	private JTextField textField_1;
+	private JTextField FileNameEntry;
 
 	/**
 	 * Launch the application.
@@ -57,26 +61,26 @@ public class MyCar {
 		lblMyCar.setBounds(28, 29, 371, 60);
 		frmMyCar.getContentPane().add(lblMyCar);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBackground(new Color(0, 206, 209));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton ChargeButton = new JButton(DOUBLE_QUOTATION_MARK);
+		ChargeButton.setBackground(new Color(0, 206, 209));
+		ChargeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\boton-de-cargar (1).png"));
-		btnNewButton.setBounds(62, 599, 38, 37);
-		frmMyCar.getContentPane().add(btnNewButton);
+		ChargeButton.setIcon(new ImageIcon(LIST_OF_IMAGES[8]));
+		ChargeButton.setBounds(62, 599, 38, 37);
+		frmMyCar.getContentPane().add(ChargeButton);
 		
-		JButton button = new JButton("");
-		button.setBackground(new Color(0, 206, 209));
-		button.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\boton-de-reproduccion (1).png"));
-		button.setBounds(12, 599, 38, 37);
-		frmMyCar.getContentPane().add(button);
+		JButton PlayButton = new JButton("");
+		PlayButton.setBackground(new Color(0, 206, 209));
+		PlayButton.setIcon(new ImageIcon(LIST_OF_IMAGES[7]));
+		PlayButton.setBounds(12, 599, 38, 37);
+		frmMyCar.getContentPane().add(PlayButton);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(112, 606, 287, 30);
-		frmMyCar.getContentPane().add(textField_1);
+		FileNameEntry = new JTextField();
+		FileNameEntry.setColumns(10);
+		FileNameEntry.setBounds(112, 606, 287, 30);
+		frmMyCar.getContentPane().add(FileNameEntry);
 		
 		JLabel lblPoints = new JLabel("Points");
 		lblPoints.setForeground(Color.WHITE);
@@ -90,11 +94,11 @@ public class MyCar {
 		lblVelocity.setBounds(724, 116, 83, 37);
 		frmMyCar.getContentPane().add(lblVelocity);
 		
-		JLabel label_1 = new JLabel("0");
-		label_1.setForeground(Color.WHITE);
-		label_1.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		label_1.setBounds(889, 49, 83, 37);
-		frmMyCar.getContentPane().add(label_1);
+		JLabel PointLabel = new JLabel("0");
+		PointLabel.setForeground(Color.WHITE);
+		PointLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		PointLabel.setBounds(889, 49, 83, 37);
+		frmMyCar.getContentPane().add(PointLabel);
 		
 		JLabel lblGear = new JLabel("Gear");
 		lblGear.setForeground(Color.WHITE);
@@ -126,11 +130,11 @@ public class MyCar {
 		lblBrushes.setBounds(724, 430, 83, 37);
 		frmMyCar.getContentPane().add(lblBrushes);
 		
-		JLabel lblDay = new JLabel("Day");
-		lblDay.setForeground(Color.WHITE);
-		lblDay.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblDay.setBounds(724, 491, 83, 37);
-		frmMyCar.getContentPane().add(lblDay);
+		JLabel WeatherLabel = new JLabel("Day");
+		WeatherLabel.setForeground(Color.WHITE);
+		WeatherLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		WeatherLabel.setBounds(724, 491, 83, 37);
+		frmMyCar.getContentPane().add(WeatherLabel);
 		
 		JLabel lblRain = new JLabel("Rain");
 		lblRain.setForeground(Color.WHITE);
@@ -138,94 +142,183 @@ public class MyCar {
 		lblRain.setBounds(724, 556, 83, 37);
 		frmMyCar.getContentPane().add(lblRain);
 		
-		JLabel label = new JLabel("0");
-		label.setForeground(Color.WHITE);
-		label.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		label.setBounds(889, 116, 83, 37);
-		frmMyCar.getContentPane().add(label);
+		JLabel VelocityLabel = new JLabel("0");
+		VelocityLabel.setForeground(Color.WHITE);
+		VelocityLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		VelocityLabel.setBounds(889, 116, 83, 37);
+		frmMyCar.getContentPane().add(VelocityLabel);
 		
-		JLabel lblNo_5 = new JLabel("No");
-		lblNo_5.setForeground(Color.WHITE);
-		lblNo_5.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo_5.setBounds(889, 179, 83, 37);
-		frmMyCar.getContentPane().add(lblNo_5);
+		JLabel GearLabel = new JLabel("0");
+		GearLabel.setForeground(Color.WHITE);
+		GearLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		GearLabel.setBounds(889, 179, 83, 37);
+		frmMyCar.getContentPane().add(GearLabel);
 		
-		JLabel lblNo_4 = new JLabel("No");
-		lblNo_4.setForeground(Color.WHITE);
-		lblNo_4.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo_4.setBounds(889, 235, 83, 37);
-		frmMyCar.getContentPane().add(lblNo_4);
+		JLabel LightsLabel = new JLabel(NO);
+		LightsLabel.setForeground(Color.WHITE);
+		LightsLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		LightsLabel.setBounds(889, 235, 83, 37);
+		frmMyCar.getContentPane().add(LightsLabel);
 		
-		JLabel lblNo_3 = new JLabel("No");
-		lblNo_3.setForeground(Color.WHITE);
-		lblNo_3.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo_3.setBounds(889, 297, 83, 37);
-		frmMyCar.getContentPane().add(lblNo_3);
+		JLabel LightRightLabel = new JLabel(NO);
+		LightRightLabel.setForeground(Color.WHITE);
+		LightRightLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		LightRightLabel.setBounds(889, 297, 83, 37);
+		frmMyCar.getContentPane().add(LightRightLabel);
 		
-		JLabel lblNo_2 = new JLabel("No");
-		lblNo_2.setForeground(Color.WHITE);
-		lblNo_2.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo_2.setBounds(889, 360, 83, 37);
-		frmMyCar.getContentPane().add(lblNo_2);
+		JLabel LightLeftLabel = new JLabel(NO);
+		LightLeftLabel.setForeground(Color.WHITE);
+		LightLeftLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		LightLeftLabel.setBounds(889, 360, 83, 37);
+		frmMyCar.getContentPane().add(LightLeftLabel);
 		
-		JLabel lblNo_1 = new JLabel("No");
-		lblNo_1.setForeground(Color.WHITE);
-		lblNo_1.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo_1.setBounds(889, 556, 83, 37);
-		frmMyCar.getContentPane().add(lblNo_1);
+		JLabel RainLabel = new JLabel(NO);
+		RainLabel.setForeground(Color.WHITE);
+		RainLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		RainLabel.setBounds(889, 556, 83, 37);
+		frmMyCar.getContentPane().add(RainLabel);
 		
-		JLabel lblNo = new JLabel("No");
-		lblNo.setForeground(Color.WHITE);
-		lblNo.setFont(new Font("Kristen ITC", Font.BOLD, 19));
-		lblNo.setBounds(889, 430, 83, 37);
-		frmMyCar.getContentPane().add(lblNo);
+		JLabel BrushesLabel = new JLabel(NO);
+		BrushesLabel.setForeground(Color.WHITE);
+		BrushesLabel.setFont(new Font("Kristen ITC", Font.BOLD, 19));
+		BrushesLabel.setBounds(889, 430, 83, 37);
+		frmMyCar.getContentPane().add(BrushesLabel);
 		
-		JButton button_1 = new JButton("");
-		button_1.setBackground(new Color(0, 206, 209));
-		button_1.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\espalda (1).png"));
-		button_1.setBounds(12, 458, 38, 37);
-		frmMyCar.getContentPane().add(button_1);
+		JButton RightButton = new JButton(DOUBLE_QUOTATION_MARK);
+		RightButton.setBackground(new Color(0, 206, 209));
+		RightButton.setIcon(new ImageIcon(LIST_OF_IMAGES[7]));
+		RightButton.setBounds(12, 458, 38, 37);
+		frmMyCar.getContentPane().add(RightButton);
 		
-		JButton button_2 = new JButton("");
-		button_2.setBackground(new Color(0, 206, 209));
-		button_2.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\adelante.png"));
-		button_2.setBounds(610, 458, 38, 37);
-		frmMyCar.getContentPane().add(button_2);
+		JButton LeftButton = new JButton(DOUBLE_QUOTATION_MARK);
+		LeftButton.setBackground(new Color(0, 206, 209));
+		LeftButton.setIcon(new ImageIcon(LIST_OF_IMAGES[6]));
+		LeftButton.setBounds(610, 458, 38, 37);
+		frmMyCar.getContentPane().add(LeftButton);
 		
-		JButton button_3 = new JButton("");
-		button_3.setBackground(new Color(0, 206, 209));
-		button_3.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\linea-menos.png"));
-		button_3.setBounds(138, 458, 38, 37);
-		frmMyCar.getContentPane().add(button_3);
+		JButton LessButton = new JButton(DOUBLE_QUOTATION_MARK);
+		LessButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				int March = Integer.parseInt(GearLabel.getText());
+				if(March == 0)
+				{
+					return;
+				}
+				else
+				{
+					String MarchTotal = String.valueOf(March - GEAR); //////////Convertirlo a constante /////
+					GearLabel.setText(MarchTotal);
+				}
+
+			}
+		});
+		LessButton.setBackground(new Color(0, 206, 209));
+		LessButton.setIcon(new ImageIcon(LIST_OF_IMAGES[5]));
+		LessButton.setBounds(138, 458, 38, 37);
+		frmMyCar.getContentPane().add(LessButton);
 		
-		JButton button_4 = new JButton("");
-		button_4.setBackground(new Color(0, 206, 209));
-		button_4.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\signo-mas.png"));
-		button_4.setBounds(480, 458, 38, 37);
-		frmMyCar.getContentPane().add(button_4);
+		JButton AddButton = new JButton(DOUBLE_QUOTATION_MARK);
+		AddButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				int March = Integer.parseInt(GearLabel.getText());
+				if(March == 5)
+				{
+					return;
+				}
+				else
+				{
+					String MarchTotal = String.valueOf(March + GEAR); //////////Convertirlo a constante /////
+					GearLabel.setText(MarchTotal);
+				}
+
+			}
+		});
+		AddButton.setBackground(new Color(0, 206, 209));
+		AddButton.setIcon(new ImageIcon(LIST_OF_IMAGES[4]));
+		AddButton.setBounds(480, 458, 38, 37);
+		frmMyCar.getContentPane().add(AddButton);
 		
-		JButton button_5 = new JButton("");
-		button_5.setBackground(new Color(0, 206, 209));
-		button_5.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\limpiaparabrisas.png"));
-		button_5.setBounds(287, 442, 91, 53);
-		frmMyCar.getContentPane().add(button_5);
+		JButton WindShieldButton = new JButton(DOUBLE_QUOTATION_MARK);
+		WindShieldButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				String BrushesState = BrushesLabel.getText();
+				if(BrushesState == YES)
+				{
+					BrushesLabel.setText(NO);
+				}
+				else
+				{	
+					BrushesLabel.setText(YES);
+				}
+			}
+		});
+		WindShieldButton.setBackground(new Color(0, 206, 209));
+		WindShieldButton.setIcon(new ImageIcon(LIST_OF_IMAGES[3]));
+		WindShieldButton.setBounds(287, 442, 91, 53);
+		frmMyCar.getContentPane().add(WindShieldButton);
 		
-		JButton button_6 = new JButton("");
-		button_6.setBackground(new Color(0, 206, 209));
-		button_6.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\bombilla (2).png"));
-		button_6.setBounds(211, 529, 38, 37);
-		frmMyCar.getContentPane().add(button_6);
+		JButton LeftLightButton = new JButton(DOUBLE_QUOTATION_MARK);
+		LeftLightButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String LightLeftState = LightLeftLabel.getText();
+				if(LightLeftState == YES)
+				{
+					LightLeftLabel.setText(NO);
+				}
+				else
+				{	
+					LightLeftLabel.setText(YES);
+				}
+			}
+		});
+		LeftLightButton.setBackground(new Color(0, 206, 209));
+		LeftLightButton.setIcon(new ImageIcon(LIST_OF_IMAGES[2]));
+		LeftLightButton.setBounds(211, 529, 38, 37);
+		frmMyCar.getContentPane().add(LeftLightButton);
 		
-		JButton button_7 = new JButton("");
-		button_7.setBackground(new Color(0, 206, 209));
-		button_7.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\bombilla (1).png"));
-		button_7.setBounds(415, 529, 38, 37);
-		frmMyCar.getContentPane().add(button_7);
+		JButton RightLightButton = new JButton(DOUBLE_QUOTATION_MARK);
+		RightLightButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String LightRightState = LightRightLabel.getText();
+				if(LightRightState == YES)
+				{
+					LightRightLabel.setText(NO);
+				}
+				else
+				{	
+					LightRightLabel.setText(YES);
+				}
+			}
+		});
+		RightLightButton.setBackground(new Color(0, 206, 209));
+		RightLightButton.setIcon(new ImageIcon(LIST_OF_IMAGES[1]));
+		RightLightButton.setBounds(415, 529, 38, 37);
+		frmMyCar.getContentPane().add(RightLightButton);
 		
-		JButton button_8 = new JButton("");
-		button_8.setBackground(new Color(0, 206, 209));
-		button_8.setIcon(new ImageIcon("C:\\Users\\dnnxl\\Downloads\\bombilla.png"));
-		button_8.setBounds(312, 529, 38, 37);
-		frmMyCar.getContentPane().add(button_8);
+		JButton Lights = new JButton(DOUBLE_QUOTATION_MARK);
+		Lights.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String LightState = LightsLabel.getText();
+				if(LightState == YES)
+				{
+					LightsLabel.setText(NO);
+				}
+				else
+				{	
+					LightsLabel.setText(YES);
+				}
+			}
+		});
+		Lights.setBackground(new Color(0, 206, 209));
+		Lights.setIcon(new ImageIcon(LIST_OF_IMAGES[0]));
+		Lights.setBounds(312, 529, 38, 37);
+		frmMyCar.getContentPane().add(Lights);
 	}
 }

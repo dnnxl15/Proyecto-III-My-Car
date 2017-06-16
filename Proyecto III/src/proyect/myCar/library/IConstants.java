@@ -23,4 +23,29 @@ public interface IConstants
 	public final int POINTS_ON_GAME = 100; //mount of points to be played in the game
 	
 	public final int POINTS_LOSE_BY_FAULT = 5; //mount of points would be lost by each fault
+	
+	
+	
+	
+	// User Interface 
+	
+	public final String YES = "Yes";
+	
+	public final String NO = "No";
+	
+	public final int GEAR = 1;
+	
+	public final String[] LIST_OF_IMAGES = 
+	{
+			"C:\\Users\\dnnxl\\Downloads\\bombilla.png",
+			"C:\\Users\\dnnxl\\Downloads\\bombilla (1).png",
+			"C:\\Users\\dnnxl\\Downloads\\bombilla (2).png",
+			"C:\\Users\\dnnxl\\Downloads\\limpiaparabrisas.png",
+			"C:\\Users\\dnnxl\\Downloads\\signo-mas.png",
+			"C:\\Users\\dnnxl\\Downloads\\linea-menos.png",
+			"C:\\Users\\dnnxl\\Downloads\\adelante.png",
+			"C:\\Users\\dnnxl\\Downloads\\espalda (1).png",
+			"C:\\Users\\dnnxl\\Downloads\\boton-de-reproduccion (1).png",
+			"C:\\Users\\dnnxl\\Downloads\\boton-de-cargar (1).png"
+	};
 }
