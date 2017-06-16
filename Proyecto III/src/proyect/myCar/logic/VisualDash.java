@@ -14,9 +14,8 @@ public class VisualDash implements IObserver
 	}
 
 	@Override
-	public void setObervable(IObservable pObservable)
-	{
-		this.Observable = pObservable;
-		this.Observable.addObserver(this);
+	public void setObservable(IObservable pObservable) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -10,7 +10,7 @@ import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;
 import proyect.myCar.library.*;
 
-public class FreeWay implements IObservable, IConstants, Runnable
+public class FreeWay implements IObservable, IConstants
 {
 	private ArrayList<IObserver> Observers;
 	private ArrayList<FreeWayComponent> componentList;
@@ -83,19 +83,18 @@ public class FreeWay implements IObservable, IConstants, Runnable
 		catch (Exception e) //catch in case of a null pointer exception
 		{
 		}
-		return myFinalRoute;
-	/*	try
+		try
 		{
 			for (int position = 0; position < myFinalRoute.size(); position++)
 			{
-				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
 				System.out.println(myFinalRoute.get(position).toString());
-				System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
 			}
 		}
 		catch (Exception e)
 		{
-		}*/
+		}
+		return myFinalRoute;
+		
 	}
 	
 	public void loadFreeComponent(String pFileName)
@@ -106,31 +105,32 @@ public class FreeWay implements IObservable, IConstants, Runnable
 		{
 			while(freeWayList.size() > counter)
 			{
-				if (freeWayList.get(counter).toString() == ".")
+				if (freeWayList.contains(ROAD_COMPONENTS[ZERO]))
 				{
+					System.out.println("yes");
 					Distance distance = new Distance();
 					this.componentList.add(distance);
 					counter++;
 					continue;
 				}
-				if (freeWayList.get(counter).toString() == "T" || freeWayList.get(counter).toString() == "+" || freeWayList.get(counter).toString() == "F")
+				if (freeWayList.contains(ROAD_COMPONENTS[ONE]) || freeWayList.contains(ROAD_COMPONENTS[TWO]) || freeWayList.contains(ROAD_COMPONENTS[THREE]))
 				{
 					Intersection intersection = new Intersection();
-					if (freeWayList.get(counter).toString() == "T")
+					if (freeWayList.contains(ROAD_COMPONENTS[ONE]))
 					{
 						intersection.setIntersection();
 						this.componentList.add(intersection);
 						counter++;
 						continue;
 					}
-					if (freeWayList.get(counter).toString() == "+")
+					if (freeWayList.contains(ROAD_COMPONENTS[TWO]))
 					{
 						intersection.setFourCorner();
 						this.componentList.add(intersection);
 						counter++;
 						continue;
 					}
-					if (freeWayList.get(counter).toString() == "F")
+					if (freeWayList.contains(ROAD_COMPONENTS[THREE]))
 					{
 						intersection.setFinal();
 						this.componentList.add(intersection);
@@ -138,19 +138,19 @@ public class FreeWay implements IObservable, IConstants, Runnable
 						continue;
 					}
 				}
-				if (freeWayList.get(counter).toString().contains("M") || freeWayList.get(counter).toString().contains("m"))
+				if (freeWayList.contains(ROAD_COMPONENTS[FOUR]) || freeWayList.contains(ROAD_COMPONENTS[FIVE]))
 				{
 					Velocity velocity = new Velocity();
 					String speed = freeWayList.get(counter).toString().substring(1); //take the numeric values in String format
 				    int speedValue = Integer.parseInt(speed);
-				    if (freeWayList.get(counter).toString().contains("M"))
+				    if (freeWayList.contains(ROAD_COMPONENTS[FOUR]))
 				    {
 						velocity.setMaximunSpeed(speedValue);
 						this.componentList.add(velocity);
 						counter++;
 						continue;
 					}
-				    if (freeWayList.get(counter).toString().contains("m"))
+				    if (freeWayList.contains(ROAD_COMPONENTS[FIVE]))
 				    {
 						velocity.setMinimunSpeed(speedValue);
 						this.componentList.add(velocity);
@@ -158,7 +158,7 @@ public class FreeWay implements IObservable, IConstants, Runnable
 						continue;
 					}
 				}
-				if (freeWayList.get(counter).toString() == "L")
+				if (freeWayList.contains(ROAD_COMPONENTS[SIX]))
 				{
 					Weather weather = new Weather();
 					weather.setRain();
@@ -166,23 +166,27 @@ public class FreeWay implements IObservable, IConstants, Runnable
 					counter++;
 					continue;
 				}
-				if ((freeWayList.get(counter).toString() == "D") || (freeWayList.get(counter).toString() == "N"))
+				if (freeWayList.contains(ROAD_COMPONENTS[SEVEN]) || freeWayList.contains(ROAD_COMPONENTS[EIGHT]))
 				{
 					Time time = new Time();
-					if ((freeWayList.get(counter).toString() == "D"))
+					if (freeWayList.contains(ROAD_COMPONENTS[SEVEN]))
 					{
 						time.setDay();
 						this.componentList.add(time);
 						counter++;
 						continue;
 					}
-					if ((freeWayList.get(counter).toString() == "N"))
+					if (freeWayList.contains(ROAD_COMPONENTS[EIGHT]))
 					{
 						time.setNight();
 						this.componentList.add(time);
 						counter++;
 						continue;
 					}
+				}
+				else
+				{
+					counter++;
 				}
 			}
 		}
@@ -193,21 +197,8 @@ public class FreeWay implements IObservable, IConstants, Runnable
 	
 	public static void main(String[] args) 
 	{
-		String a = "h123";
-		String b = a.substring(1);
-		int c = Integer.parseInt(b);
-		System.out.println(c);
-		 //FreeWay road = new FreeWay();
-		 //road.splitText("C:/Users/dnnxl/Desktop/ruta.txt");
-	}
 
-	// Method run
-	
-	@Override
-	public void run() 
-	{
-		// TODO Auto-generated method stub
-		
+		FreeWay road = new FreeWay();
+		road.loadFreeComponent("C:/Users/esteb/Documents/2017 - I SEMESTRE/POO/FINAL/ruta.txt");
 	}
 }
-
