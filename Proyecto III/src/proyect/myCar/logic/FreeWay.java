@@ -105,7 +105,7 @@ public class FreeWay implements IObservable, IConstants
 		{
 			while(freeWayList.size() > counter)
 			{
-				if (freeWayList.contains(ROAD_COMPONENTS[ZERO]))
+				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT]))
 				{
 					System.out.println("yes");
 					Distance distance = new Distance();
@@ -113,24 +113,24 @@ public class FreeWay implements IObservable, IConstants
 					counter++;
 					continue;
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[ONE]) || freeWayList.contains(ROAD_COMPONENTS[TWO]) || freeWayList.contains(ROAD_COMPONENTS[THREE]))
+				if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
 				{
 					Intersection intersection = new Intersection();
-					if (freeWayList.contains(ROAD_COMPONENTS[ONE]))
+					if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]))
 					{
 						intersection.setIntersection();
 						this.componentList.add(intersection);
 						counter++;
 						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[TWO]))
+					if (freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]))
 					{
 						intersection.setFourCorner();
 						this.componentList.add(intersection);
 						counter++;
 						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[THREE]))
+					if (freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
 					{
 						intersection.setFinal();
 						this.componentList.add(intersection);
@@ -138,19 +138,19 @@ public class FreeWay implements IObservable, IConstants
 						continue;
 					}
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[FOUR]) || freeWayList.contains(ROAD_COMPONENTS[FIVE]))
+				if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
 				{
 					Velocity velocity = new Velocity();
 					String speed = freeWayList.get(counter).toString().substring(1); //take the numeric values in String format
 				    int speedValue = Integer.parseInt(speed);
-				    if (freeWayList.contains(ROAD_COMPONENTS[FOUR]))
+				    if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]))
 				    {
 						velocity.setMaximunSpeed(speedValue);
 						this.componentList.add(velocity);
 						counter++;
 						continue;
 					}
-				    if (freeWayList.contains(ROAD_COMPONENTS[FIVE]))
+				    if (freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
 				    {
 						velocity.setMinimunSpeed(speedValue);
 						this.componentList.add(velocity);
@@ -158,7 +158,7 @@ public class FreeWay implements IObservable, IConstants
 						continue;
 					}
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[SIX]))
+				if (freeWayList.contains(ROAD_COMPONENTS[RAIN_COMPONENT]))
 				{
 					Weather weather = new Weather();
 					weather.setRain();
@@ -166,17 +166,17 @@ public class FreeWay implements IObservable, IConstants
 					counter++;
 					continue;
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[SEVEN]) || freeWayList.contains(ROAD_COMPONENTS[EIGHT]))
+				if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
 				{
 					Time time = new Time();
-					if (freeWayList.contains(ROAD_COMPONENTS[SEVEN]))
+					if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]))
 					{
 						time.setDay();
 						this.componentList.add(time);
 						counter++;
 						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[EIGHT]))
+					if (freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
 					{
 						time.setNight();
 						this.componentList.add(time);
