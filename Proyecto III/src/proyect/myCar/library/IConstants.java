@@ -2,7 +2,7 @@ package proyect.myCar.library;
 
 public interface IConstants 
 {
-	public final int MAXIMUM_REVOLUTIONS = 3000; // the car can't exeed that limit
+	public final int MAXIMUM_REVOLUTIONS = 3500; // the car can't exeed that limit
 
 	public final int MOUNT_OF_THREADS = 5; // Mount of thread 
 
@@ -26,23 +26,23 @@ public interface IConstants
 	
 	public final String[] ROAD_COMPONENTS = {".", "T", "+", "F", "M", "m", "L", "D", "N"};
 	
-	public final short ZERO = 0;
+	public final short POINT_COMPONENT = 0;
 	
-	public final short ONE = 1;
+	public final short INTERSECTION_COMPONENT = 1;
 	
-	public final short TWO = 2;
+	public final short FOUR_CORNERS_COMPONENT = 2;
 	
-	public final short THREE = 3;
+	public final short FINAL_COMPONENT = 3;
 	
-	public final short FOUR = 4;
+	public final short MAXIMUM_SPEED_COMPONENT = 4;
 	
-	public final short FIVE = 5;
+	public final short MINIMUM_SPEED_COMPONENT = 5;
 	
-	public final short SIX = 6;
+	public final short RAIN_COMPONENT = 6;
 	
-	public final short SEVEN = 7;
+	public final short DAY_COMPONENT = 7;
 	
-	public final short EIGHT = 8;
+	public final short NIGHT_COMPONENT = 8;
 	
 	// User Interface 
 	
