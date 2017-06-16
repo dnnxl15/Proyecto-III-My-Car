@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import proyect.myCar.library.IConstants;
+import proyect.myCar.library.IObservable;
+import proyect.myCar.library.IObserver;
+import proyect.myCar.logic.ThreadManager;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -15,11 +18,22 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class MyCar implements IConstants
+public class MyCar implements IConstants, IObserver
 {
 
 	private JFrame frmMyCar;
 	private JTextField FileNameEntry;
+	private static MyCar Instance;
+	private IObservable Observable;
+	
+	public synchronized static MyCar getInstance()
+	{
+		if (Instance==null)
+		{
+			Instance = new MyCar();
+		}
+		return Instance;
+	}
 
 	/**
 	 * Launch the application.
@@ -28,7 +42,7 @@ public class MyCar implements IConstants
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MyCar window = new MyCar();
+					MyCar window = MyCar.getInstance();
 					window.frmMyCar.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +54,7 @@ public class MyCar implements IConstants
 	/**
 	 * Create the application.
 	 */
-	public MyCar() {
+	private MyCar() {
 		initialize();
 	}
 
@@ -320,5 +334,19 @@ public class MyCar implements IConstants
 		Lights.setIcon(new ImageIcon(LIST_OF_IMAGES[0]));
 		Lights.setBounds(312, 529, 38, 37);
 		frmMyCar.getContentPane().add(Lights);
+	}
+
+	@Override
+	public void update() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setObservable(IObservable pObservable) // Add the observable
+	{
+		this.Observable = pObservable;
+		this.Observable.addObserver(this);
 	}
 }

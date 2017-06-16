@@ -20,8 +20,4 @@ public class Evaluator implements IConstants
 	{
 		
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/master

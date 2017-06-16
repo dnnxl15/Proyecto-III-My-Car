@@ -200,5 +200,14 @@ public class FreeWay implements IObservable, IConstants, Runnable
 		 //FreeWay road = new FreeWay();
 		 //road.splitText("C:/Users/dnnxl/Desktop/ruta.txt");
 	}
+
+	// Method run
+	
+	@Override
+	public void run() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }
 

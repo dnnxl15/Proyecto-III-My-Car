@@ -14,8 +14,4 @@ public class CoordinationSystem extends AbstractSystem
 		this.motorObject = new Motor();
 		this.directionObject = new Direction();
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/master

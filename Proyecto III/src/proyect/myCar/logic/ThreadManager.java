@@ -24,9 +24,19 @@ public class ThreadManager implements IConstants
 		return Instance;
 	}
 	
-	public void executeThread()
+	public void executeThread(Runnable pThread)
 	{
-		
+		this.Executor.execute(pThread);
+	}
+	
+	public void shutdownThreads()
+	{
+		this.Executor.shutdown();
+	}
+	
+	public boolean isTerminated()
+	{
+		return this.Executor.isTerminated();
 	}
 }
 
