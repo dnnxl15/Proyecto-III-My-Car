@@ -19,13 +19,30 @@ public interface IConstants
 	public final int ONE_HUNDRED = 100;
 	
 	public final int ACCELERATION = 20; //accelerates in a constant from 0 to 100 km/h in 5 seconds}
-	
+
 	public final int POINTS_ON_GAME = 100; //mount of points to be played in the game
 	
 	public final int POINTS_LOSE_BY_FAULT = 5; //mount of points would be lost by each fault
 	
+	public final String[] ROAD_COMPONENTS = {".", "T", "+", "F", "M", "m", "L", "D", "N"};
 	
+	public final short ZERO = 0;
 	
+	public final short ONE = 1;
+	
+	public final short TWO = 2;
+	
+	public final short THREE = 3;
+	
+	public final short FOUR = 4;
+	
+	public final short FIVE = 5;
+	
+	public final short SIX = 6;
+	
+	public final short SEVEN = 7;
+	
+	public final short EIGHT = 8;
 	
 	// User Interface 
 	
