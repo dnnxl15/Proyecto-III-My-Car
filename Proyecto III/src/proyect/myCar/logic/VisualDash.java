@@ -1,5 +1,6 @@
 package proyect.myCar.logic;
 
+import proyect.myCar.library.DashElementType;
 import proyect.myCar.library.IObservable;
 import proyect.myCar.library.IObserver;
 
@@ -14,9 +15,27 @@ public class VisualDash implements IObserver
 	}
 
 	@Override
-	public void setObervable(IObservable pObservable)
+	public void setObservable(IObservable pObservable)
 	{
-		this.Observable = pObservable;
-		this.Observable.addObserver(this);
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(FreeWayComponent pComponent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setSecondObservable(IObservable pObservable) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(DashElementType pType, int pState) {
+		// TODO Auto-generated method stub
+		
 	}
 }

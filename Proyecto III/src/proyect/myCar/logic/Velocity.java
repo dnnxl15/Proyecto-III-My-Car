@@ -13,16 +13,6 @@ public class Velocity extends FreeWayComponent
 		this.minimumSpeed = 0;
 	}
 	
-	public int getMaximunSpeed()
-	{
-		return this.maximumSpeed;
-	}
-	
-	public int getMinimunSpeed()
-	{
-		return this.minimumSpeed;
-	}
-	
 	public void setMaximunSpeed(int pMaximunSpeed)
 	{
 		this.maximumSpeed = pMaximunSpeed;
@@ -54,7 +44,18 @@ public class Velocity extends FreeWayComponent
 		else
 		{
 			return false;
-		}	}
+		}
+	}
+	
+	public int getMaximumSpeed()
+	{
+		return this.maximumSpeed;
+	}
+	
+	public int getMinumumSpeed()
+	{
+		return this.minimumSpeed;
+	}
 	
 	@Override
 	public FreeWayComponentType getIdentifier()
