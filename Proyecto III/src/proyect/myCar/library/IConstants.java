@@ -107,6 +107,32 @@ public interface IConstants
 	public final int MAXIMUN_GEAR = 5;
 	
 	public final int MINIMUN_GEAR = 1;
-
 	
+	// User Interface 
+	
+	public final String FONT = "Kristen ITC";
+
+	public final String TITLE = "My Car";
+	
+	public final String METER_TEXT = "Meters"; 
+	
+	public final String ZERO_TEXT = "0";
+	
+	public final String RAIN_TEXT = "Rain";
+	
+	public final String BRUSHES_TEXT = "Brushes";
+	
+	public final String LIGHT_LEFT_TEXT = "Lights Left";
+	
+	public final String LIGHT_RIGHT_TEXT = "Lights Right";
+	
+	public final String LIGHTS_TEXT = "Lights";
+	
+	public final String GEAR_TEXT = "Gear";
+	
+	public final String VELOCITY_TEXT = "Velocity"; 
+	
+	public final String POINTS_TEXT = "Points";
+	
+
 }
