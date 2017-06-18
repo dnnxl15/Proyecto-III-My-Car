@@ -2,7 +2,7 @@ package proyect.myCar.logic;
 
 public class NavigationSystem extends AbstractSystem
 {
-	public NavigationSystem() //constructor for the NavigationSystem class
+	public NavigationSystem()
 	{
 		this.electricObject = null;
 		this.obstaclesObject = null;

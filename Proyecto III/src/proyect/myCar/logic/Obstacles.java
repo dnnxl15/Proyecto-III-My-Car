@@ -2,13 +2,13 @@ package proyect.myCar.logic;
 
 public class Obstacles extends SystemCar 
 {
-	private boolean obstacleDay; //attribute for day
-	private boolean obstacleNight; //attribute for night
-	private int obstacleMinimumSpeed; //attribute for the max speed
-	private int obstacleMaximumSpeed; //attribute for the min speed
-	private boolean obstacleRain; //attribute for the rain
+	private boolean obstacleDay;
+	private boolean obstacleNight;
+	private int obstacleMinimumSpeed;
+	private int obstacleMaximumSpeed;
+	private boolean obstacleRain;
 	
-	public Obstacles() //constructor method for the Obstacles method
+	public Obstacles()
 	{
 		obstacleDay = false;
 		obstacleNight = false;
@@ -17,46 +17,48 @@ public class Obstacles extends SystemCar
 		obstacleRain = false;
 	}
 	
-	public void setObstacleDay() //set the day as true and the night as false
+	public void setObstacleDay()
 	{
 		obstacleDay = true;
 		obstacleNight = false;
 	}
 	
-	public void setObstacleNight() //set the night as ture and the day as false
+	public void setObstacleNight()
 	{
+		
 		obstacleDay = true;
 		obstacleNight = false;
 	}
 	
-	public void setRaining() //set the rain as true
+	public void setRaining()
 	{
 		this.obstacleRain = true;
 	}
 	
-	public boolean isObstacleDay() //if is day
+	public boolean isObstacleDay()
 	{
-		return this.obstacleDay; //return its current status
+		return this.obstacleDay;
 	}
 	
-	public boolean isObstacleNight() //if is night
+	public boolean isObstacleNight()
 	{
-		return this.obstacleNight; //return its current status
+		return this.obstacleNight;
 	}
 	
-	public boolean isObstacleMaximumSpeed() //if is maximum speed
+	public boolean isObstacleMaximumSpeed()
 	{
-		if(this.obstacleMaximumSpeed > 0) //if > 0
+		if(this.obstacleMaximumSpeed>0)
 		{
+			
 			return true;
 		}
 		else	
 			return false;
 	}
 	
-	public boolean isObstacleMinimumSpeed() //if is minimum speed
+	public boolean isObstacleMinimumSpeed()
 	{
-		if(this.obstacleMinimumSpeed > 0)
+		if(this.obstacleMinimumSpeed>0)
 		{
 			return true;
 		}
@@ -64,17 +66,17 @@ public class Obstacles extends SystemCar
 			return false;
 	}
 	
-	public boolean isRaining() //if is raining
+	public boolean isRaining()
 	{
-		return this.obstacleRain; //return the current status
+		return this.obstacleRain;
 	}
 	
-	public int getMaximunSpeed() //get the current value of the maximum speed
+	public int getMaximunSpeed()
 	{
 		return this.obstacleMaximumSpeed;
 	}
 	
-	public int getMinumumSpeed() //get the current value of the minimum speed
+	public int getMinumumSpeed()
 	{
 		return this.obstacleMinimumSpeed;
 	}

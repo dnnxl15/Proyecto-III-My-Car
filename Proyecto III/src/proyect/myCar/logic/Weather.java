@@ -4,26 +4,26 @@ import proyect.myCar.library.FreeWayComponentType;
 
 public class Weather extends FreeWayComponent
 {
-	private boolean Rain; //attribute for the rain
+	private boolean Rain;
 	
-	public Weather() //constructor method for the Weather class
+	public Weather()
 	{
 		this.Rain = false;
 	}
 	
-	public void setRain() //set the rain as true
+	public void setRain()
 	{
 		this.Rain = true;
 	}
 	
-	public void setRainOff() //set the rain as false
+	public void setRainOff()
 	{
 		this.Rain = false;
 	}
 	
-	public boolean isRaining() //ask for the status of rain
+	public boolean isRaining()
 	{
-		return Rain; //return the current status of the rain
+		return Rain;
 	}
 	
 	@Override

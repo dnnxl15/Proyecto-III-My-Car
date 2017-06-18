@@ -7,42 +7,18 @@ import java.util.List;
 
 import proyect.myCar.library.*;
 
-public class FreeWay implements IObservable, IConstants
+public class FreeWay implements IConstants
 {
-	private ArrayList<IObserver> Observers; //ArrayList for the observer
-	private ArrayList<FreeWayComponent> componentList; //ArrayList of the Free way components
+	private ArrayList<FreeWayComponent> componentList;
 	
-	public FreeWay() //constructor method 
+	public FreeWay()
 	{
-		this.Observers = new ArrayList<IObserver>();
 		this.componentList = new ArrayList<FreeWayComponent>();
 	}
-
-	@Override
-	public void addObserver(IObserver pObserver) 
-	{
-		this.Observers.add(pObserver);
-	}
-
-	@Override
-	public void removeObserver(IObserver pObserver) 
-	{
-		this.Observers.remove(pObserver);
-	}
 	
-	public ArrayList<IObserver> getObservers()
+	public ArrayList<FreeWayComponent> getComponentList()
 	{
-		return this.Observers;
-	}
-
-	@Override
-	public void notifyObserver() 
-	{
-		for (Iterator<IObserver> it = Observers.iterator(); it.hasNext();) 
-        {
-            IObserver IObserver = it.next();
-            IObserver.update();
-        }
+		return this.componentList;
 	}
 	
 	private List<String> splitText(String pRoute)
@@ -80,108 +56,93 @@ public class FreeWay implements IObservable, IConstants
 		catch (Exception e) //catch in case of a null pointer exception
 		{
 		}
-		try
-		{
-			for (int position = 0; position < myFinalRoute.size(); position++)
-			{
-				System.out.println(myFinalRoute.get(position).toString());
-			}
-		}
-		catch (Exception e)
-		{
-		}
 		return myFinalRoute;
-		
 	}
 	
 	public void loadFreeComponent(String pFileName)
 	{
-		ArrayList<String> freeWayList = (ArrayList<String>) splitText(pFileName); //do the cast and
-		//freeWayList would has the return ArrayList of the splitText function
-		int counter = 0; //counter to analyze each element of the list
+		ArrayList<String> freeWayList = (ArrayList<String>) splitText(pFileName);
+		int counter = 0;
 		try
 		{
-			while(freeWayList.size() > counter) //while counter less than the size of the ArrayList
+			while(freeWayList.size() > counter)
 			{
-				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT])) //if the element is a point
+				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT]))
 				{
-					Distance distance = new Distance(); //creates a new DIstance object
-					this.componentList.add(distance); //add that Distance object to the ArrayList of the components
-					counter++; 
-					continue; //continue at the end of the while
+					Distance distance = new Distance();
+					this.componentList.add(distance);
+					counter++;
+					continue;
 				}
-				//if is an intersection element
 				if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
 				{
-					Intersection intersection = new Intersection(); //creates an Instersection object
-					if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT])) //if is an normal intersection
+					Intersection intersection = new Intersection();
+					if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]))
 					{
-						intersection.setIntersection(); //set the object as a normal intersection
-						this.componentList.add(intersection); //add the object to the ArrayList
+						intersection.setIntersection();
+						this.componentList.add(intersection);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT])) //if is a four corner
+					if (freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]))
 					{
-						intersection.setFourCorner(); //set the object as a four corners
-						this.componentList.add(intersection); //add the object to the ArrayList
+						intersection.setFourCorner();
+						this.componentList.add(intersection);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT])) //if is the final
-					{ 
-						intersection.setFinal(); //set the object as the final
-						this.componentList.add(intersection); //add the object to the ArrayList
+					if (freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
+					{
+						intersection.setFinal();
+						this.componentList.add(intersection);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
 				}
-				//if is a Speed element
 				if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
 				{
-					Velocity velocity = new Velocity(); //creates a Velocity object
+					Velocity velocity = new Velocity();
 					String speed = freeWayList.get(counter).toString().substring(1); //take the numeric values in String format
-				    int speedValue = Integer.parseInt(speed); //convert from string to an integer 
-				    if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT])) //if is a maximum speed
+				    int speedValue = Integer.parseInt(speed);
+				    if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]))
 				    {
-						velocity.setMaximunSpeed(speedValue); //set the maximum speed to the value it gets
-						this.componentList.add(velocity); //add the object to the ArrayList
+						velocity.setMaximunSpeed(speedValue);
+						this.componentList.add(velocity);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
-				    if (freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT])) //if is minimum speed
+				    if (freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
 				    {
-						velocity.setMinimunSpeed(speedValue); //set the minimum speed to the value it gets
-						this.componentList.add(velocity); //add the object to the ArrayList
+						velocity.setMinimunSpeed(speedValue);
+						this.componentList.add(velocity);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[RAIN_COMPONENT])) //if is raining
+				if (freeWayList.contains(ROAD_COMPONENTS[RAIN_COMPONENT]))
 				{
-					Weather weather = new Weather(); //creates a Weather object
-					weather.setRain(); //set the rain as true
-					this.componentList.add(weather); //add the object to the ArrayList
+					Weather weather = new Weather();
+					weather.setRain();
+					this.componentList.add(weather);
 					counter++;
-					continue; //continue at the end of the while
+					continue;
 				}
-				//if is a Day component
 				if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
 				{
-					Time time = new Time(); //creates a Time object
-					if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT])) //if is Day
+					Time time = new Time();
+					if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]))
 					{
-						time.setDay(); //set day as true and night as false
-						this.componentList.add(time); //add the object to the ArrayList
+						time.setDay();
+						this.componentList.add(time);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT])) //if is Night
+					if (freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
 					{
-						time.setNight(); //set night as true and day as false
-						this.componentList.add(time); //add the object to the ArrayList
+						time.setNight();
+						this.componentList.add(time);
 						counter++;
-						continue; //continue at the end of the while
+						continue;
 					}
 				}
 				else
@@ -193,23 +154,5 @@ public class FreeWay implements IObservable, IConstants
 		catch (Exception e)
 		{
 		}
-	}
-	
-	public static void main(String[] args) 
-	{
-		FreeWay road = new FreeWay();
-		road.loadFreeComponent("C:/Users/esteb/Documents/2017 - I SEMESTRE/POO/FINAL/ruta.txt");
-	}
-
-	@Override
-	public void notifyObserver(FreeWayComponent pComponent) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void notifyObserver(DashElementType pType, int pState) {
-		// TODO Auto-generated method stub
-		
 	}
 }

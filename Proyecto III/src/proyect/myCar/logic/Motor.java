@@ -1,48 +1,127 @@
 package proyect.myCar.logic;
 
+import proyect.myCar.library.DashElementType;
+
 public class Motor extends SystemCar
 {
-	private boolean motor; //attribute of the motor
-	private int gear; //attribute for the gear
+	private boolean motorState;
+	private int gear;
+	private int velocity;
+	private int revolutions;
+	private boolean speedState;
 	
-	
-	public Motor() //constructor for the Motor class
+	public Motor()
 	{
-		this.motor = false;
-		this.gear= 0;
-	}
-	public boolean isMotorOn() //if the motor is on
-	{
-		return this.motor;
-	}
-	
-	public void turnOnMotor() //turn on the motor
-	{
-		this.motor = true;
+		this.motorState = false;
+		this.gear = 0;
+		this.velocity = 0;
+		this.revolutions = 0;
+		this.speedState = false;
 	}
 	
-	public void turnOffMotor() //turn off the motor
+	public int getDistanceTravel(int pTime)
 	{
-		this.motor = false;
+		int distance = velocity * pTime;
+		return distance;
 	}
 	
-	public int speedUp() //increse the speed
+	public boolean getSpeedState()
 	{
-		return 0;
+		return this.speedState;
 	}
 	
-	public int decelerate() //decrese the speed
+	public void setAccelerate()
 	{
-		return 0;
+		this.speedState = false;
 	}
 	
-	public int getGear() //get the current value of the gear
+	public void setDecelerate()
+	{
+		this.speedState = true;
+	}
+	
+	public void setRevolutions(int pRevolutions)
+	{
+		this.revolutions = pRevolutions;
+	}
+	
+	public int getRevolutions()
+	{
+		return this.revolutions;
+	}
+	
+	public boolean isMotorOn()
+	{
+		return this.motorState;
+	}
+	
+	public void setVelocity(int pVelocity)
+	{
+		this.velocity = pVelocity;
+	}
+	
+	public int getVelocity()
+	{
+		return this.velocity;
+	}
+	
+	public void turnOnMotor()
+	{
+		this.motorState = true;
+	}
+	
+	public void turnOffMotor()
+	{
+		this.motorState = false;
+	}
+	
+	public int speedUp(int pTime)
+	{
+		this.velocity = ACCELERATION * pTime / MILISECONDS_IN_A_SECONDS;
+		notifyObserver(DashElementType.VELOCITY, this.velocity);
+		return this.velocity;
+	}
+	
+	public int decelerate(int pTime)
+	{
+		this.velocity = ACCELERATION * pTime / MILISECONDS_IN_A_SECONDS;
+		notifyObserver(DashElementType.VELOCITY, this.velocity);
+		return this.velocity;
+	}
+	
+	public int getGear()
 	{
 		return gear;
 	}
 	
-	public void setGear(int pGear) //set the gear
+	public void setGear(short pGear)
 	{
 		this.gear = pGear;
+	}
+		
+	public void increaseGear()
+	{
+		if(this.gear == MAXIMUN_GEAR)
+		{
+			return;
+		}
+		else
+		{
+			this.gear = this.gear++; 
+			notifyObserver(DashElementType.GEAR, gear);
+		}
+	}
+	
+	public void decreaseGear()
+	{
+		if(this.gear == MINIMUN_GEAR)
+		{
+			return;
+		}
+		else
+		{
+			this.gear = this.gear--; 
+			notifyObserver(DashElementType.GEAR, gear);
+		}
 	}
 }

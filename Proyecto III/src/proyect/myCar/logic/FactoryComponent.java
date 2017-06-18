@@ -7,45 +7,45 @@ public class FactoryComponent implements IFactory
 {
 	private static FactoryComponent Instance; //instance
 
-	private FactoryComponent() //Constructor method
+	private FactoryComponent()
 	{
 	}
 	
-	public synchronized static FactoryComponent getInstance() //creates the synchronized instance initialize 
+	public synchronized static FactoryComponent getInstance()
 	{
 		if (Instance==null)
 		{
-			Instance = new FactoryComponent(); //instance equal to null 
+			Instance = new FactoryComponent();
 		}
 		return Instance;
 	}
 	
 	@Override
-	public FreeWayComponent createComponent(FreeWayComponentType pType)  //method that create the different components
+	public FreeWayComponent createComponent(FreeWayComponentType pType) 
 	{
-		if(FreeWayComponentType.DISTANCE == pType) 
+		if(FreeWayComponentType.DISTANCE == pType)
 		{
-			Distance distance = new Distance(); //create the a Distance object
+			Distance distance = new Distance();
 			return distance;
 		}
 		else if(FreeWayComponentType.INTERSECTION == pType)
 		{
-			Intersection intersection = new Intersection(); //create the Intersection object
+			Intersection intersection = new Intersection();
 			return intersection;
 		}
 		else if(FreeWayComponentType.TIME == pType)
 		{
-			Time time = new Time(); //create the Time bbject
+			Time time = new Time();
 			return time;
 		}
 		else if(FreeWayComponentType.VELOCITY == pType)
 		{
-			Velocity velocity = new Velocity(); //create the Velocity object
+			Velocity velocity = new Velocity();
 			return velocity;
 		}
 		else 
 		{
-			Weather weather = new Weather(); //create the Weather object
+			Weather weather = new Weather();
 			return weather;
 		}
 	}

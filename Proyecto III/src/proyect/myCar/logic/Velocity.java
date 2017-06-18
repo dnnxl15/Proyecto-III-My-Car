@@ -4,58 +4,57 @@ import proyect.myCar.library.FreeWayComponentType;
 
 public class Velocity extends FreeWayComponent
 {
-	private int maximumSpeed; //attribute for the maximum speed
-	private int minimumSpeed; //attribute for the minimum speed
+	private int maximumSpeed;
+	private int minimumSpeed;
 	
-	public Velocity() //constructor method for the Velocity class
+	public Velocity()
 	{
-		this.maximumSpeed = 0; 
+		this.maximumSpeed = 0;
 		this.minimumSpeed = 0;
 	}
 	
-	public void setMaximunSpeed(int pMaximunSpeed) //set the maximum speed
-	{ 
+	public int getMaximunSpeed()
+	{
+		return this.maximumSpeed;
+	}
+	
+	public int getMinimunSpeed()
+	{
+		return this.minimumSpeed;
+	}
+	
+	public void setMaximunSpeed(int pMaximunSpeed)
+	{
 		this.maximumSpeed = pMaximunSpeed;
 	}
 	
-	public void setMinimunSpeed(int pMinimunSpeed) //set the minumum speed
+	public void setMinimunSpeed(int pMinimunSpeed)
 	{
 		this.minimumSpeed = pMinimunSpeed;
 	}
 	
-	public boolean isMaximumSpeed() //if it is maximum speed
+	public boolean isMaximumSpeed()
 	{
-		if(maximumSpeed > 0) //has to be > than 0
+		if(maximumSpeed > 0)
 		{
-			return true; //equals to true
+			return true;
 		}
 		else
 		{
-			return false; //else going to be false
+			return false;
 		}
 	}
 	
-	public boolean isMinimumSpeed() //if it is minimum seed
+	public boolean isMinimumSpeed()
 	{
-		if(minimumSpeed > 0) //has to be > the 0
+		if(minimumSpeed > 0)
 		{
-			return true; //equal to true
+			return true;
 		}
 		else
 		{
-			return false; //else going to be false
-		}
-	}
-	
-	public int getMaximumSpeed() //get the maximum speed
-	{
-		return this.maximumSpeed; //return the current value
-	}
-	
-	public int getMinumumSpeed() //get the minimum speed
-	{
-		return this.minimumSpeed; //return the current value 
-	}
+			return false;
+		}	}
 	
 	@Override
 	public FreeWayComponentType getIdentifier()

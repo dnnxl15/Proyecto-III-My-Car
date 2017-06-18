@@ -2,19 +2,33 @@ package proyect.myCar.logic;
 
 public class Direction extends SystemCar
 {
-	private int axisX; //attribute that indicates the movement of the car
+	private boolean leftMove;
+	private boolean rightMove;
 	
-	public Direction() //constructor of the class
+	public Direction()
 	{
-		this.axisX = 0; //equal to 0
+		this.leftMove = false;
+		this.rightMove = false;
 	}
-	public int moveRight() //move the car to the right
+	public void moveRight()
 	{
-		return this.axisX; //return its value
+		this.rightMove = true;
+		this.leftMove = false;
 	}
 	
-	public int moveLeft() //move the car to the left
+	public void moveLeft()
 	{
-		return this.axisX; //return its value
+		this.leftMove = true;
+		this.rightMove = false;
+	}
+	
+	public boolean isMoveLeft()
+	{
+		return this.leftMove;
+	}
+	
+	public boolean isMoveRight()
+	{
+		return this.rightMove;
 	}
 }

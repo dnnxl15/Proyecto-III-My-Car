@@ -1,11 +1,13 @@
 package proyect.myCar.logic;
 
+import proyect.myCar.library.DashElementType;
+
 public class Electric extends SystemCar
 {
-	private boolean lights; //attribute of the lights in the car
-	private boolean leftDirectional; //attribute of the left directional in the car
-	private boolean rightDirectional; //attribute of the right directional in the car
-	private boolean brushes; //attribute of the brushes in the car
+	private boolean lights;
+	private boolean leftDirectional;
+	private boolean rightDirectional;	
+	private boolean brushes;
 	
 	public Electric() //constructor function for the Electric class
 	{
@@ -15,62 +17,70 @@ public class Electric extends SystemCar
 		brushes = false;
 	}
 	
-	public void setOnLights() //turn on the lights
+	public void setOnLights()
 	{
 		lights = true;
+		notifyObserver(DashElementType.LIGHTS, ON);
 	}
 	
-	public void setOffLights() //turn off the lights
+	public void setOffLights()
 	{
 		lights = false;
+		notifyObserver(DashElementType.LIGHTS, OFF);
 	}
 	
-	public boolean getLights() //get the current status of the light
+	public boolean getLights()
 	{
 		return this.lights;
 	}
 	
-	public void setOnLeftDirectional() //turn on the left directional
+	public void setOnLeftDirectional()
 	{
 		leftDirectional = true;
+		notifyObserver(DashElementType.LIGHTS_LEFT, ON);
 	}
 	
-	public void setOffLeftDirectional() //turn off the left directional
+	public void setOffLeftDirectional()
 	{
 		leftDirectional = false;
+		notifyObserver(DashElementType.LIGHTS_LEFT, OFF);
 	}
 	
-	public boolean getLeftDirectional() ///get the current status of the left directional
+	public boolean getLeftDirectional()
 	{
 		return this.leftDirectional;
 	}
 	
-	public void setOnRightDirectional() //turn on the right directional
+	public void setOnRightDirectional()
 	{
 		rightDirectional = true;
+		notifyObserver(DashElementType.LIGHTS_RIGHT, ON);
 	}
 	
-	public void setOffRightDirectional() //turn off the right directional
+	public void setOffRightDirectional()
 	{
 		rightDirectional = false;
+		notifyObserver(DashElementType.LIGHTS_RIGHT, OFF);
 	}
 	
-	public boolean getRightDirectional() //get the current status of the right directional
+	public boolean getRightDirectional()
 	{
 		return this.rightDirectional;
 	}
 	
-	public void setOffBrushes() //turn off the brushes
+	public void setOffBrushes()
 	{
 		brushes = false;
+		notifyObserver(DashElementType.BRUSHES, OFF);
 	}
 	
-	public void setOnBrushes() //turn on the brushes
+	public void setOnBrushes()
 	{
 		brushes = true;
+		notifyObserver(DashElementType.BRUSHES, ON);
 	}
 	
-	public boolean getBrushes() //get the current status of the brushes
+	public boolean getBrushes()
 	{
 		return this.brushes;
 	}
