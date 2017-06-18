@@ -8,15 +8,15 @@ public interface IConstants
 
 	public final int TRACK_METERS = 100; //Symbology of point
 	
-	public final String DOUBLE_QUOTATION_MARK = "";
+	public final String DOUBLE_QUOTATION_MARK = ""; //for the split
 	
-	public final String MINIMUN = "m";
+	public final String MINIMUN = "m"; //minimum speed symbol
 
-	public final String MAXIMUN = "M";
+	public final String MAXIMUN = "M"; //maximum speed symbol
 	
-	public final String ONE_HUNDRED_METERS = ".";
+	public final String ONE_HUNDRED_METERS = "."; //symbol for a hundred meters
 	
-	public final int ONE_HUNDRED = 100;
+	public final int ONE_HUNDRED = 100; //constant to be used in some formulas
 	
 	public final int ACCELERATION = 20; //accelerates in a constant from 0 to 100 km/h in 5 seconds}
 	
@@ -35,7 +35,7 @@ public interface IConstants
 			"L",
 			"D",
 			"N"
-	};
+	}; //components of the road
 	
 	public final short POINT_COMPONENT = 0;
 	
@@ -80,9 +80,9 @@ public interface IConstants
 	
 	// Constant used to update the user interface with the FreeWay
 	
-	public final int WAIT = 10;
+	public final int WAIT = 10; //wait for the thread
 	
-	public final String FALSE = "False";
+	public final String FALSE = "False"; 
 	
 	public final String TRUE = "True";
 	
@@ -134,19 +134,19 @@ public interface IConstants
 	
 	public final String POINTS_TEXT = "Points";
 	
-	public final int INITIAL = 0;
+	public final int INITIAL = 0; //initial speed
 	
-	public final int TIME_TO_GET_MAXIMUN_SPEED = 5000;
+	public final int TIME_TO_GET_MAXIMUN_SPEED = 5000; //time to get the maximum speed
 	
-	public final int MILISECONDS_IN_A_SECONDS = 1000;
+	public final int MILISECONDS_IN_A_SECONDS = 1000; //how many milliseconds in a second
 	
-	public final int WAIT_SPEED = 100;
+	public final int WAIT_SPEED = 100; //sleep in the thread
 	
-	public final boolean ALWAYS = true;
+	public final boolean ALWAYS = true; //while true
 	
-	public final int FINAL_COUNTER = 5000;
+	public final int FINAL_COUNTER = 5000; 
 	
-	public final int TIME_TO_GET_MINIMUN_SPEED = 0;
+	public final int TIME_TO_GET_MINIMUN_SPEED = 0; //minimum speed
 	
-	public final int WAIT_THREADS = 5000;
+	public final int WAIT_THREADS = 5000; //sleep for the threads
 }
