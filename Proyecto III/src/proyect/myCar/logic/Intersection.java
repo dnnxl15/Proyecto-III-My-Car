@@ -4,30 +4,30 @@ import proyect.myCar.library.FreeWayComponentType;
 
 public class Intersection extends FreeWayComponent
 {
-	private boolean fourCorner;
-	private boolean intersection;
-	private boolean Final;
+	private boolean fourCorner; //attribute for the four corners
+	private boolean intersection; //attribute for the regular intersection
+	private boolean roadFinal; //attribute for the final of the way
 	
-	public Intersection()
+	public Intersection() //constructor of the Intersection class
 	{
 		this.fourCorner = false;
 		this.intersection = false;
-		this.Final = false;
+		this.roadFinal = false;
 	}
 	
-	public boolean isIntersection()
+	public boolean isIntersection() //if is a normal intersection
 	{
-		return intersection;
+		return intersection; //return the current status of intersection
 	}
 	
-	public boolean isFourCorner()
+	public boolean isFourCorner() //if is four corners
 	{
-		return fourCorner;
+		return fourCorner; //return the current status of four corners
 	}
 	
-	public boolean isFinal()
+	public boolean isFinal() //if is the final of the way
 	{
-		return Final;
+		return roadFinal; //return the current value of the final
 	}
 	
 	@Override
@@ -36,17 +36,17 @@ public class Intersection extends FreeWayComponent
 		return FreeWayComponentType.INTERSECTION;
 	}
 	
-	public void setFourCorner()
+	public void setFourCorner() //set the four corners as true
 	{
 		fourCorner = true;
 	}
 
-	public void setFinal() 
+	public void setFinal() //set the final as true
 	{
-		Final = true;
+		roadFinal = true;
 	}
 
-	public void setIntersection()
+	public void setIntersection() //set the intersection as true
 	{
 		this.intersection = true;
 	}
