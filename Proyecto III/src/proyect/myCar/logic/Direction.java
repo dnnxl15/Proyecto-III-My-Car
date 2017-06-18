@@ -2,19 +2,19 @@ package proyect.myCar.logic;
 
 public class Direction implements SystemCar
 {
-	private int axisX;
+	private int axisX; //attribute that indicates the movement of the car
 	
-	public Direction()
+	public Direction() //constructor of the class
 	{
-		this.axisX = 0;
+		this.axisX = 0; //equal to 0
 	}
-	public int moveRight()
+	public int moveRight() //move the car to the right
 	{
-		return this.axisX;
+		return this.axisX; //return its value
 	}
 	
-	public int moveLeft()
+	public int moveLeft() //move the car to the left
 	{
-		return this.axisX;
+		return this.axisX; //return its value
 	}
 }

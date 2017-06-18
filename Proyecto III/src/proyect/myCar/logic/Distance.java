@@ -5,25 +5,25 @@ import proyect.myCar.library.IConstants;
 
 public class Distance extends FreeWayComponent implements IConstants
 {
-	private int Meter;
+	private int meter; //attribute that refers to the distance
 	
-	public Distance()
+	public Distance() //constructor of the Distance class
 	{
-		this.Meter = 0;
+		this.meter = 0; //equal to 0
 	}
 	
-	public int getMeter()
+	public int getMeter() //get the value of Meter
 	{
-		return this.Meter;
+		return this.meter;
 	}
 	
-	public void setMeter(int pMeter)
-	{
-		this.Meter = pMeter;
+	public void setMeter(int pMeter) //set the variable Meter
+	{ 
+		this.meter = pMeter; //equal Meter to pMeter
 	}
 	
 	@Override
-	public FreeWayComponentType getIdentifier()
+	public FreeWayComponentType getIdentifier() //return the enum of Distance
 	{
 		return FreeWayComponentType.DISTANCE;
 	}
