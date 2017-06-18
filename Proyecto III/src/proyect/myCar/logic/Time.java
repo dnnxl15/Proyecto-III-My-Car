@@ -4,23 +4,23 @@ import proyect.myCar.library.FreeWayComponentType;
 
 public class Time extends FreeWayComponent
 {
-	private boolean day;
-	private boolean night;
+	private boolean day; //attribute for day
+	private boolean night; //attribute for night
 	
-	public Time()
+	public Time() //constructor method for the Time class
 	{
 		day = false;
 		night = false;
 	}
 	
-	public boolean isNight()
+	public boolean isNight() //if is night
 	{
-		return night;
+		return night; //return its current status
 	}
 	
-	public boolean isDay()
+	public boolean isDay() //if is day
 	{
-		return day;
+		return day; //return its current value
 	}
 	
 	@Override
@@ -29,13 +29,13 @@ public class Time extends FreeWayComponent
 		return FreeWayComponentType.TIME;
 	}
 
-	public void setDay() 
+	public void setDay() //set the day as true and the night as false
 	{
 		this.night = false;
 		this.day = true;
 	}
 	
-	public void setNight()
+	public void setNight() //set the night as true and day as false
 	{
 		this.day = false;
 		this.night = true;
