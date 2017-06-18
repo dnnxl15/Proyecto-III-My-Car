@@ -9,7 +9,7 @@ public class Car implements Runnable, IConstants
 	private AbstractSystem navigationSystemObject; //attribute of AbstracSystem type
 	private int distance;
 	
-	public Car()
+	public Car() //constructor method for the Car class
 	{
 		coordinationSystemObject = new CoordinationSystem();
 		coordinationSystemObject.createCoordinationSystem();
@@ -18,22 +18,22 @@ public class Car implements Runnable, IConstants
 		distance = INITIAL;
 	}
 	
-	public int getDistance()
+	public int getDistance() //get the distance
 	{
-		return this.distance;
+		return this.distance; //return the distance
 	}
 	
-	public void setDistance(int pDistance)
+	public void setDistance(int pDistance) //set the distance value
 	{
 		this.distance = pDistance;
 	}
 	
-	public AbstractSystem getCoordinationSystemObject()
+	public AbstractSystem getCoordinationSystemObject() //get the CoorditionalSystem object
 	{
 		return coordinationSystemObject;
 	}
 	
-	public AbstractSystem getNavigationSystemObject()
+	public AbstractSystem getNavigationSystemObject() //get the NavigationSystem object
 	{
 		return navigationSystemObject;
 	}
@@ -86,7 +86,7 @@ public class Car implements Runnable, IConstants
 		electricObject.setOffBrushes(); //call the function that turn off the brushes
 	}
 	
-	public void addObserver(IObserver pObserver)
+	public void addObserver(IObserver pObserver) //observer function
 	{
 		coordinationSystemObject.getDirection().addObserver(pObserver);
 		coordinationSystemObject.getMotor().addObserver(pObserver);
@@ -95,71 +95,71 @@ public class Car implements Runnable, IConstants
 	}
 
 	@Override
-	public void run() 
+	public void run() //run the thread
 	{
-		int counter;
-		int velocity;
-		Motor motor = (Motor) navigationSystemObject.getMotor();
-		while(ALWAYS)
+		int counter; //counter for the while
+		int velocity; //velocity the car has
+		Motor motor = (Motor) navigationSystemObject.getMotor(); //cast and create a new Motor object
+		while(ALWAYS) //while true
 		{
-			if(motor.getSpeedState() == true)
+			if(motor.getSpeedState() == true) //if is speedUp
 			{
-				counter = INITIAL;
-				while(motor.getSpeedState() == true)
+				counter = INITIAL; //counter equal to initial (0)
+				while(motor.getSpeedState() == true) //while true
 				{
-					if(counter <= TIME_TO_GET_MAXIMUN_SPEED)
+					if(counter <= TIME_TO_GET_MAXIMUN_SPEED) //if the velocity less than the maximum
 					{
-						velocity = motor.speedUp(counter); 		
-						motor.setVelocity(velocity);	
+						velocity = motor.speedUp(counter); 	//velocity equals to the return function
+						motor.setVelocity(velocity); //set the velocity to the motor object
 						
-						distance = (velocity * MILISECONDS_IN_A_SECONDS) + distance;
-						int revolutions = (velocity / motor.getGear()) * ONE_HUNDRED;
-						motor.setRevolutions(revolutions);
+						distance = (velocity * MILISECONDS_IN_A_SECONDS) + distance; //calculate the distance the car has travel
+						int revolutions = (velocity / motor.getGear()) * ONE_HUNDRED; //calculate the revolutions
+						motor.setRevolutions(revolutions); //set the revolutions in the Motor class
 						try 
 						{
-							Thread.sleep(WAIT_SPEED);
+							Thread.sleep(WAIT_SPEED); //do the sleep
 						} 
 						catch (InterruptedException e) 
 						{
 						}
-						counter = counter + ONE_HUNDRED;
+						counter = counter + ONE_HUNDRED; //counter incress 100
 					}
 					else
 					{
-						break;
+						break; //break the while
 					}
 				}
 			}
-			else
+			else //else do
 			{
-				counter = FINAL_COUNTER;
-				while(motor.getSpeedState() == false)
+				counter = FINAL_COUNTER; //counter equal to 5 seconds
+				while(motor.getSpeedState() == false) //if speed down
 				{
-					if(counter >= TIME_TO_GET_MINIMUN_SPEED)
+					if(counter >= TIME_TO_GET_MINIMUN_SPEED) //if counter more that 0
 					{
-						velocity = motor.speedUp(counter); 		
-						motor.setVelocity(velocity);
+						velocity = motor.speedUp(counter); //velocity equals to the speedUp
+						motor.setVelocity(velocity); //set the velocity
 						
-						distance = (velocity * MILISECONDS_IN_A_SECONDS) + distance;
+						distance = (velocity * MILISECONDS_IN_A_SECONDS) + distance; //calculate the distance
 
-						int revolutions = (velocity / motor.getGear()) * ONE_HUNDRED;
-						motor.setRevolutions(revolutions);
+						int revolutions = (velocity / motor.getGear()) * ONE_HUNDRED; //calculate the revolutions
+						motor.setRevolutions(revolutions); //set the revolutions
 						try 
 						{
-							Thread.sleep(WAIT_SPEED);
+							Thread.sleep(WAIT_SPEED); //do the sleep
 						} 
 						catch (InterruptedException e) 
 						{
 						}
-						counter = counter - ONE_HUNDRED;
+						counter = counter - ONE_HUNDRED; //counter decress 
 					}
 					else
 					{
-						break;
+						break; //do the break
 					}
 				}
 			}
-			break;
+			break; //do the break to get out from the run
 		}
 	}
 }

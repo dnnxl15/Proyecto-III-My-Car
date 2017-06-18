@@ -61,93 +61,96 @@ public class FreeWay implements IConstants
 	
 	public void loadFreeComponent(String pFileName)
 	{
-		ArrayList<String> freeWayList = (ArrayList<String>) splitText(pFileName);
-		int counter = 0;
+		ArrayList<String> freeWayList = (ArrayList<String>) splitText(pFileName); //do the cast
+		int counter = 0; //counter equal to 0
 		try
 		{
-			while(freeWayList.size() > counter)
+			while(freeWayList.size() > counter) //while counter less than the size of the arrayList
 			{
-				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT]))
+				if (freeWayList.contains(ROAD_COMPONENTS[POINT_COMPONENT])) //if the element is a point
 				{
-					Distance distance = new Distance();
-					this.componentList.add(distance);
+					Distance distance = new Distance(); //create a new Distance object
+					this.componentList.add(distance); //add the component to the final arrayList
 					counter++;
-					continue;
+					continue; //continue at the end of the while
 				}
+				//if the element is a kind of intersection
 				if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
 				{
-					Intersection intersection = new Intersection();
-					if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT]))
+					Intersection intersection = new Intersection(); //create a new intersection object
+					if (freeWayList.contains(ROAD_COMPONENTS[INTERSECTION_COMPONENT])) //if is an intersection
 					{
-						intersection.setIntersection();
-						this.componentList.add(intersection);
+						intersection.setIntersection(); //set as true the intersection
+						this.componentList.add(intersection); //add the intersection component to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT]))
+					if (freeWayList.contains(ROAD_COMPONENTS[FOUR_CORNERS_COMPONENT])) //if is four corners
 					{
-						intersection.setFourCorner();
-						this.componentList.add(intersection);
+						intersection.setFourCorner(); //set as true the four corners
+						this.componentList.add(intersection); //add the four corners component to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT]))
+					if (freeWayList.contains(ROAD_COMPONENTS[FINAL_COMPONENT])) //if is final component 
 					{
-						intersection.setFinal();
-						this.componentList.add(intersection);
+						intersection.setFinal(); //set as true the final
+						this.componentList.add(intersection); // add to the arrayList the final component
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
 				}
+				//if is a velocity element
 				if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
 				{
-					Velocity velocity = new Velocity();
+					Velocity velocity = new Velocity(); //create a new velocity object
 					String speed = freeWayList.get(counter).toString().substring(1); //take the numeric values in String format
-				    int speedValue = Integer.parseInt(speed);
-				    if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT]))
+				    int speedValue = Integer.parseInt(speed); //get an int value by parsing a string
+				    if (freeWayList.contains(ROAD_COMPONENTS[MAXIMUM_SPEED_COMPONENT])) //if is maximum speed
 				    {
-						velocity.setMaximunSpeed(speedValue);
-						this.componentList.add(velocity);
+						velocity.setMaximunSpeed(speedValue); //set the maximum speed with the value
+						this.componentList.add(velocity); //add that value to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
-				    if (freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT]))
+				    if (freeWayList.contains(ROAD_COMPONENTS[MINIMUM_SPEED_COMPONENT])) //if is minimum speed
 				    {
-						velocity.setMinimunSpeed(speedValue);
-						this.componentList.add(velocity);
+						velocity.setMinimunSpeed(speedValue); //set the minimum speed with the value
+						this.componentList.add(velocity); //add that value to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
 				}
-				if (freeWayList.contains(ROAD_COMPONENTS[RAIN_COMPONENT]))
+				if (freeWayList.contains(ROAD_COMPONENTS[RAIN_COMPONENT])) //if is a weather element
 				{
-					Weather weather = new Weather();
-					weather.setRain();
-					this.componentList.add(weather);
+					Weather weather = new Weather(); //create a new weather element
+					weather.setRain(); //set the rain as true
+					this.componentList.add(weather); //add the component to the arrayList
 					counter++;
-					continue;
+					continue; //continue at the end of the while
 				}
+				//if is a Time element
 				if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]) || freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
 				{
-					Time time = new Time();
-					if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT]))
+					Time time = new Time(); //create a new time object
+					if (freeWayList.contains(ROAD_COMPONENTS[DAY_COMPONENT])) //if the element is day
 					{
-						time.setDay();
-						this.componentList.add(time);
+						time.setDay(); //set the day as true and the night as false
+						this.componentList.add(time); //add the element to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
-					if (freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT]))
+					if (freeWayList.contains(ROAD_COMPONENTS[NIGHT_COMPONENT])) //if the element is night
 					{
-						time.setNight();
-						this.componentList.add(time);
+						time.setNight(); //set the night as true and the day as false
+						this.componentList.add(time); //add the component to the arrayList
 						counter++;
-						continue;
+						continue; //continue at the end of the while
 					}
 				}
 				else
 				{
-					counter++;
+					counter++; //increase the counter to analyze next position
 				}
 			}
 		}

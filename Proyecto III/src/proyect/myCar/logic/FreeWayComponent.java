@@ -5,7 +5,7 @@ import proyect.myCar.library.IConstants;
 
 public abstract class FreeWayComponent implements IConstants
 {
-	public FreeWayComponent()
+	public FreeWayComponent() //constructor method
 	{
 	}
 	

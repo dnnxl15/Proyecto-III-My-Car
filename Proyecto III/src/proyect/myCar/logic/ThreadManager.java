@@ -10,7 +10,7 @@ public class ThreadManager implements IConstants
 	private static ThreadManager Instance; //instance
 	private ExecutorService Executor;
 	
-	private ThreadManager()
+	private ThreadManager() //constructor method
 	{
 		this.Executor = Executors.newFixedThreadPool(MOUNT_OF_THREADS); 
 	}

@@ -13,17 +13,17 @@ import proyect.myCar.userInterface.MyCar;
 
 public class Simulator implements Runnable, IConstants, IObservable
 {
-	private Dash dashObject;
-	private FreeWay freeWayObject;
-	private Car carObject;
+	private Dash dashObject; //attribute of the Dash type
+	private FreeWay freeWayObject; //attribute of the Freeway type
+	private Car carObject; //attribute of the car type
 	private MyCar userInterface; //Interface
 	private BrushesPanel brushesPanelObject; //Interface
-	private Evaluator evaluatorObject;
-	private ArrayList<IObserver> Observers;
+	private Evaluator evaluatorObject; //attribute of the Evaluator type
+	private ArrayList<IObserver> Observers; 
 	
 	private ArrayList<FreeWayComponent> componentFreeWay;
 	
-	public Simulator()
+	public Simulator() //constructor method of the Simulator class
 	{
 		dashObject = new Dash();
 		freeWayObject = new FreeWay();
@@ -38,89 +38,89 @@ public class Simulator implements Runnable, IConstants, IObservable
 		Observers = new ArrayList<IObserver>();
 	}
 	
-	public void setFreeWayComponent(String pFile)
+	public void setFreeWayComponent(String pFile) //set the freeWayComponent
 	{
 		this.freeWayObject.loadFreeComponent(pFile);
 		this.componentFreeWay = this.freeWayObject.getComponentList();
 	}
 	
-	public Car getCar()
+	public Car getCar() //get car
 	{
-		return carObject;
+		return carObject; //returning a car object
 	}
 	
-	public void startThread()
+	public void startThread() //start the thread
 	{
-		ThreadManager managerThreadObject = ThreadManager.getInstance();
-		managerThreadObject.executeThread(carObject);
-		managerThreadObject.executeThread(this);
-		managerThreadObject.executeThread(brushesPanelObject);
+		ThreadManager managerThreadObject = ThreadManager.getInstance(); //get the instance
+		managerThreadObject.executeThread(carObject); //execute the thread
+		managerThreadObject.executeThread(this); //execute the thread
+		managerThreadObject.executeThread(brushesPanelObject); //execute the thread
 	}
 
 	@Override
-	public void run() 
+	public void run() //run the thread
 	{
-		int counter = INITIAL; // Inicializarlo a cero
-		int distance = INITIAL; // Inicializarlo a cero
-		while(componentFreeWay.size() > counter) // mientras que la lista sea mayor que el contador
+		int counter = INITIAL; // equal to zero
+		int distance = INITIAL; // equal to zer
+		while(componentFreeWay.size() > counter) // while counter less than the size
 		{ 
-			FreeWayComponent component = componentFreeWay.get(counter); // componente de la carretera
-			if(component.getIdentifier() == FreeWayComponentType.WEATHER)
+			FreeWayComponent component = componentFreeWay.get(counter); // road component
+			if(component.getIdentifier() == FreeWayComponentType.WEATHER) //if is a weather component
 			{
-				Electric brushes = (Electric) carObject.getNavigationSystemObject().getElectric();
-				boolean brushesState = brushes.getBrushes(); // Parabrisas encendido?
-				evaluatorObject.calculatePointsOnWeather(component, brushesState); // evaluador evalua
+				Electric brushes = (Electric) carObject.getNavigationSystemObject().getElectric(); //cast the electric class
+				boolean brushesState = brushes.getBrushes(); // ask for the brushes status
+				evaluatorObject.calculatePointsOnWeather(component, brushesState); // evaluate the weather component
 				notifyObserver(component);
 				counter++;
 			}
-			else if(component.getIdentifier() == FreeWayComponentType.TIME)
+			else if(component.getIdentifier() == FreeWayComponentType.TIME) //if is a time component
 			{
-				Electric lights = (Electric) carObject.getNavigationSystemObject().getElectric();
-				boolean lightsState = lights.getLights();
-				evaluatorObject.calculatePointOnTime(component, lightsState);
-				notifyObserver(component);
+				Electric lights = (Electric) carObject.getNavigationSystemObject().getElectric(); //cast the electric class
+				boolean lightsState = lights.getLights(); //get lights status
+				evaluatorObject.calculatePointOnTime(component, lightsState); //calculate points
+				notifyObserver(component); //notify the observer
 				counter++;
 			}
-			else if(component.getIdentifier() == FreeWayComponentType.DISTANCE)
+			else if(component.getIdentifier() == FreeWayComponentType.DISTANCE) //if is a distance component 
 			{
-				Distance metersDistance = (Distance) component;
-				if(distance > carObject.getDistance())// si la distancia es mayor que lo que lleva el carro recoriendo
+				Distance metersDistance = (Distance) component; //cast the Distance class
+				if(distance > carObject.getDistance())// if the distas is more than the distance that the car has travel
 				{
-					notifyObserver(component);
+					notifyObserver(component); //notify the observer
 					continue;
 				}
 				else
 				{
-					distance = distance + metersDistance.getMeter();
-					notifyObserver(component);
+					distance = distance + metersDistance.getMeter(); //get the meters
+					notifyObserver(component); //notify the observer
 					counter++;
 				}
 			}
-			else if(component.getIdentifier() == FreeWayComponentType.INTERSECTION)
+			else if(component.getIdentifier() == FreeWayComponentType.INTERSECTION) //if is a intersection component
 			{
-				Direction direction = (Direction) carObject.getCoordinationSystemObject().getDirection();
-				boolean LeftMove = direction.isMoveLeft();
-				boolean RightMove = direction.isMoveRight();
-				Electric  electric = (Electric) carObject.getNavigationSystemObject().getElectric();
-				boolean LightRight = electric.getRightDirectional();
-				boolean LightLeft = electric.getLeftDirectional();
-				Motor motorObject = (Motor) carObject.getNavigationSystemObject().getMotor();
-				int velocity = motorObject.getVelocity();
-				evaluatorObject.calculatePointOnIntersection(component, RightMove, LeftMove, LightLeft, LightRight, velocity);
-				notifyObserver(component);
+				Direction direction = (Direction) carObject.getCoordinationSystemObject().getDirection(); //cast the direction
+				boolean LeftMove = direction.isMoveLeft(); //ask for moving left
+				boolean RightMove = direction.isMoveRight(); //ask for moving right
+				Electric  electric = (Electric) carObject.getNavigationSystemObject().getElectric(); //cast the electric
+				boolean LightRight = electric.getRightDirectional(); //get the right directional status
+				boolean LightLeft = electric.getLeftDirectional(); //get the left directional status
+				Motor motorObject = (Motor) carObject.getNavigationSystemObject().getMotor(); //cast the motor class
+				int velocity = motorObject.getVelocity(); //get the velocity
+				evaluatorObject.calculatePointOnIntersection(component, RightMove, LeftMove, LightLeft, LightRight, velocity); //do the evaluation
+				notifyObserver(component); //notify the observer
 				counter++;
 			}
-			else if(component.getIdentifier() == FreeWayComponentType.VELOCITY)
+			else if(component.getIdentifier() == FreeWayComponentType.VELOCITY) //if is a velocity component
 			{
-				Motor motorObject = (Motor) carObject.getNavigationSystemObject().getMotor();
-				int velocity = motorObject.getVelocity();
-				evaluatorObject.calculatePointOnVelocity(component, velocity);
-				notifyObserver(component);
+				Motor motorObject = (Motor) carObject.getNavigationSystemObject().getMotor(); //cast the Motor class
+				int velocity = motorObject.getVelocity(); //get the velocity value
+				evaluatorObject.calculatePointOnVelocity(component, velocity); //calculate points
+				notifyObserver(component); //notify the observer
 				counter++;
 			}
 			try 
 			{
-				Thread.sleep(WAIT_THREADS);
+				Thread.sleep(WAIT_THREADS); //do the sleep
 			}
 			catch (InterruptedException e) 
 			{

@@ -12,7 +12,7 @@ public class SystemCar implements IObservable, IConstants
 {
 	private ArrayList<IObserver> Observers;
 	
-	public SystemCar()
+	public SystemCar() //constructor method
 	{
 		this.Observers = new ArrayList<IObserver>();
 	}

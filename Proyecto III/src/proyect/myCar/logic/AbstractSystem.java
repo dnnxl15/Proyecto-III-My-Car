@@ -20,7 +20,7 @@ public class AbstractSystem
 		this.motorObject = new Motor();
 	}
 	
-	public SystemCar getMotor()
+	public SystemCar getMotor() //return an SystemCar object of the motor type
 	{
 		return this.motorObject;
 	}
@@ -30,17 +30,17 @@ public class AbstractSystem
 		this.obstaclesObject = new Obstacles();
 	}
 	
-	public SystemCar getObstacles()
+	public SystemCar getObstacles() //return an SystemCar object of the obstacles type
 	{
 		return this.obstaclesObject;
 	}
 	
-	public void createDirection() //creat a new Direction object
+	public void createDirection() //create a new Direction object
 	{
 		this.directionObject = new Direction();
 	}
 	
-	public SystemCar getDirection()
+	public SystemCar getDirection() //return an SystemCar object of the direction type
 	{
 		return this.directionObject;
 	}
@@ -50,7 +50,7 @@ public class AbstractSystem
 		this.electricObject = new Electric();
 	}
 
-	public SystemCar getElectric()
+	public SystemCar getElectric()//return an SystemCar object of the electric type
 	{
 		return this.electricObject;
 	}
