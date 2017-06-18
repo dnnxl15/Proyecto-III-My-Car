@@ -134,5 +134,19 @@ public interface IConstants
 	
 	public final String POINTS_TEXT = "Points";
 	
-
+	public final int INITIAL = 0;
+	
+	public final int TIME_TO_GET_MAXIMUN_SPEED = 5000;
+	
+	public final int MILISECONDS_IN_A_SECONDS = 1000;
+	
+	public final int WAIT_SPEED = 100;
+	
+	public final boolean ALWAYS = true;
+	
+	public final int FINAL_COUNTER = 5000;
+	
+	public final int TIME_TO_GET_MINIMUN_SPEED = 0;
+	
+	public final int WAIT_THREADS = 5000;
 }
