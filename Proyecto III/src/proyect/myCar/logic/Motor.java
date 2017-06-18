@@ -1,6 +1,6 @@
 package proyect.myCar.logic;
 
-public class Motor implements SystemCar
+public class Motor extends SystemCar
 {
 	private boolean motor; //attribute of the motor
 	private int gear; //attribute for the gear

@@ -2,7 +2,7 @@ package proyect.myCar.logic;
 
 import java.util.Iterator;
 
-public interface SystemCar
+public class SystemCar
 {
 
 }

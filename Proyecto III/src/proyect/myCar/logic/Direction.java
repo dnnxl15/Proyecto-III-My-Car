@@ -1,6 +1,6 @@
 package proyect.myCar.logic;
 
-public class Direction implements SystemCar
+public class Direction extends SystemCar
 {
 	private int axisX; //attribute that indicates the movement of the car
 	

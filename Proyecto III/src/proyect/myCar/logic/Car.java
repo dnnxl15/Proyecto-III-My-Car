@@ -52,4 +52,5 @@ public class Car
 		Electric electricObject = (Electric) this.navigationSystemObject.getElectric(); //make the cast
 		electricObject.setOffBrushes(); //call the function that turn off the brushes
 	}
+	
 }
